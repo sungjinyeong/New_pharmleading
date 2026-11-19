@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages/main.css">
+    <link rel="stylesheet" href="../css/popup.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
     <script src="../js/common.js" defer></script>
     <script src="../js/pages/main.js" defer></script>
+    <script src="../js/popup.js" defer></script>
 </head>
 <body>
     <header class="site_header">
@@ -199,7 +201,7 @@
                     <section class="participation_card finish">
                         <div class="participation_heading">
                             <h2 class="participation_title">오늘의 약학 OX퀴즈 <span class="participation_point">1000P</span></h2>
-                            <a class="participation_more" href="#"><span>+</span></a>
+                            <a class="participation_more quiz_gate_open" href="#"><span>+</span></a>
                         </div>
                         <p class="participation_description">타이레놀(아세트아미노펜)은 소염 작용이 뛰어나 관절염에 1차로 추천된다.</p>
                         <fieldset class="participation_choices participation_quiz" disabled>
@@ -460,6 +462,48 @@
                 <div class="menu_external"><a href="#">데일리팜 바로가기</a></div>
             </div>
             <button class="menu_close" type="button"><span class="sr_only">전체 메뉴 닫기</span></button>
+        </div>
+    </div>
+    <!-- 팝업: active 추가 시 표시. 정답/오답 응답에 맞춰 해당 팝업만 활성화 -->
+    <div class="popup quiz_retry active">
+        <div class="result_panel">
+            <div class="result_icon"><img src="../../images/icons/result_retry.svg" alt="" width="40" height="40"></div>
+            <div class="result_message"><h2>다시 도전해 주세요.</h2></div>
+            <button class="result_confirm" type="button">확인</button>
+        </div>
+    </div>
+    <div class="popup quiz_correct active">
+        <div class="result_panel">
+            <div class="result_icon"><img src="../../images/icons/point_icon.png" alt="" width="60" height="60"></div>
+            <div class="result_message"><h2>정답입니다!</h2><p>팜포인트가 지급되었습니다</p></div>
+            <button class="result_confirm" type="button">확인</button>
+        </div>
+    </div>
+    <div class="popup quiz_gate active">
+        <div class="result_panel">
+            <div class="result_icon"><img src="../../images/main/aleart.png" alt="" width="32" height="40"></div>
+            <div class="result_message"><h2>오늘의 퀴즈에 참여해 주세요!</h2><p>오늘의 퀴즈에 참여 후<br>지난 퀴즈를 확인할 수 있습니다.</p></div>
+            <button class="result_confirm" type="button">확인</button>
+        </div>
+    </div>
+    <!-- 공통 교환 팝업 -->
+    <div class="popup exchange_popup active">
+        <div class="popup_panel">
+            <div class="popup_header">
+                <h2 class="popup_title">잠깐만요, 약사님!</h2>
+                <button class="popup_close" type="button">닫기 <span class="popup_close_icon"></span></button>
+            </div>
+            <div class="popup_body">
+                <p class="popup_description">선물 받으실 휴대전화 번호를 확인해 주세요.<br>교환 상품은 입력하신 번호로 당일 발송됩니다.</p>
+                <form class="exchange_form">
+                    <label class="exchange_phone_label">
+                        <span class="exchange_field_title">휴대전화 번호</span>
+                        <input class="exchange_phone" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" placeholder="01012345678" pattern="01[016789][0-9]{7,8}" maxlength="11" required>
+                    </label>
+                    <div class="exchange_notice"><strong>입력 전 꼭 확인해 주세요</strong><span>번호를 잘못 입력하면 재발송이 불가합니다.</span></div>
+                    <button class="exchange_submit" type="submit">기프티콘 교환 <span class="exchange_submit_arrow"></span></button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
