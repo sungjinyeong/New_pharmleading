@@ -195,19 +195,21 @@
         <section class="main_participation">
             <div class="container">
                 <div class="participation_grid">
-                    <section class="participation_card">
+                    <!-- 완료 상태 예시: finish 추가, 기존 답 checked, fieldset/button disabled, 버튼 문구 참여완료 -->
+                    <section class="participation_card finish">
                         <div class="participation_heading">
                             <h2 class="participation_title">오늘의 약학 OX퀴즈 <span class="participation_point">1000P</span></h2>
                             <a class="participation_more" href="#"><span>+</span></a>
                         </div>
                         <p class="participation_description">타이레놀(아세트아미노펜)은 소염 작용이 뛰어나 관절염에 1차로 추천된다.</p>
-                        <fieldset class="participation_choices participation_quiz">
+                        <fieldset class="participation_choices participation_quiz" disabled>
                             <label class="participation_choice"><input type="radio" name="mobile_quiz" value="o"><span class="participation_o"></span></label>
-                            <label class="participation_choice"><input type="radio" name="mobile_quiz" value="x"><span class="participation_x"></span></label>
+                            <label class="participation_choice"><input type="radio" name="mobile_quiz" value="x" checked><span class="participation_x"></span></label>
                         </fieldset>
                         <!-- 개발 연동: 선택한 답변을 전송하고 참여 결과를 표시 -->
-                        <button class="participation_button" type="button" disabled>참여하기</button>
+                        <button class="participation_button" type="button" disabled>참여완료</button>
                     </section>
+                    <!-- 기본 상태 예시: 참여 완료 시 위 퀴즈와 동일하게 finish 및 완료 속성 적용 -->
                     <section class="participation_card">
                         <div class="participation_heading">
                             <h2 class="participation_title">약사님의 생각은? <span class="participation_point">1000P</span></h2>

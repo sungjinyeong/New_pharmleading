@@ -31,6 +31,9 @@
   --color_text_muted: var(--color_gray_300);
   --color_border: var(--color_gray_200);
   --color_border_hover: #B8C8D9;
+  --color_event_finished: var(--color_gray_300);
+  --color_event_finished_bg: var(--color_gray_100);
+  --color_event_finished_border: var(--color_gray_200);
   --color_shadow_header: #00000026;
   --color_shadow_section: color-mix(in srgb, var(--color_black) 5%, transparent);
   --color_bg: var(--color_white);

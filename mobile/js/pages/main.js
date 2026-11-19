@@ -33,7 +33,9 @@ document.querySelectorAll('.welcome_toggle').forEach((button) => {
 document.querySelectorAll('.participation_card').forEach((card) => {
   const button = card.querySelector('.participation_button');
   const syncSelection = () => {
-    button.disabled = !card.querySelector('input[type="radio"]:checked');
+    const finished = card.classList.contains('finish');
+    if (finished) card.querySelector('.participation_choices').disabled = true;
+    button.disabled = finished || !card.querySelector('input[type="radio"]:checked');
   };
   card.addEventListener('change', syncSelection);
   syncSelection();

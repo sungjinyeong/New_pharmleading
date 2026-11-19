@@ -476,6 +476,33 @@ h1.header_logo img{
   font-weight: 600;
   line-height: 1.2;
 }
+/* 참여 완료: sidebar_event에 finish 추가 */
+.sidebar_event.finish{
+  border-color: var(--color_white);
+  background-color: var(--color_white);
+}
+.sidebar_event.finish .sidebar_title,
+.sidebar_event.finish .sidebar_more{ color: var(--color_event_finished); }
+.sidebar_event.finish .sidebar_point{ color: var(--color_event_finished_border); }
+.sidebar_event.finish .sidebar_choice{
+  color: var(--color_event_finished);
+  background-color: var(--color_event_finished_bg);
+}
+.sidebar_event.finish .sidebar_choice:has(input:checked){
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}
+.sidebar_event.finish .sidebar_choices:not(.quiz_choices) .sidebar_choice{
+  box-shadow: inset 0 0 0 1px var(--color_event_finished_border);
+}
+.sidebar_event.finish .sidebar_choices:not(.quiz_choices) .sidebar_choice:has(input:checked){
+  box-shadow: inset 0 0 0 1px var(--color_primary);
+}
+.sidebar_event.finish .sidebar_button,
+.sidebar_event.finish .sidebar_button:hover{
+  color: var(--color_white);
+  background-color: var(--color_event_finished);
+}
 .sidebar_link_box{ min-width: 0; }
 .sidebar_shop_link{
   display: flex;

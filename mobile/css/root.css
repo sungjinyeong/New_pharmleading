@@ -12,6 +12,10 @@
   --color_border: #F0F1F3;
   --color_surface: #F5F6F8;
   --color_white: #FFFFFF;
+  --color_event_finished: #AFAFAF;
+  --color_event_finished_bg: #F2F2F2;
+  --color_event_finished_border: #DFDFDF;
+  --color_blue_light: #DCEBFF;
   --container_width: 1024px;
   --padding: 10px;
   --page_gutter: calc(var(--padding) * 1.8);

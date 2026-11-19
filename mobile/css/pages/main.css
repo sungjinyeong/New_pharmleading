@@ -151,8 +151,8 @@
 /* 웰컴 이벤트: active로 접기 / 펼치기 */
 .main_welcome{
   width: 100%;
-  margin-block: calc(var(--padding) * 2);
-  padding-block: calc(var(--padding) * 1.6);
+  margin-block: calc(var(--padding) * 1.5);
+  padding-block: calc(var(--padding) * 1.5);
   background-color: #DCEAFF;
 }
 .welcome_toggle{
@@ -512,6 +512,32 @@
   line-height: 1.3;
 }
 .participation_button:disabled{ background-color: #AFAFAF; }
+/* 참여 완료: participation_card에 finish 추가. 선택한 답은 파란색 유지 */
+.participation_card.finish{ background-color: var(--color_white); }
+.participation_card.finish .participation_title,
+.participation_card.finish .participation_more{ color: var(--color_event_finished); }
+.participation_card.finish .participation_point{ color: var(--color_event_finished_border); }
+.participation_card.finish .participation_choice{
+  color: var(--color_event_finished);
+  background-color: var(--color_event_finished_bg);
+}
+.participation_card.finish .participation_choice:has(input:checked){
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}
+.participation_card.finish .participation_choices:not(.participation_quiz) .participation_choice{
+  box-shadow: inset 0 0 0 1px var(--color_event_finished_border);
+}
+.participation_card.finish .participation_choices:not(.participation_quiz) .participation_choice:has(input:checked){
+  box-shadow: inset 0 0 0 1px var(--color_primary);
+}
+.participation_card.finish .participation_button,
+.participation_card.finish .participation_button:hover{
+  color: var(--color_white);
+  background-color: var(--color_event_finished);
+}
+.participation_card.finish .participation_choice,
+.participation_card.finish .participation_choice input{ cursor: default; }
 @media (max-width: 359px){
   .participation_subject,
   .participation_description,
