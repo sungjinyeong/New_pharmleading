@@ -1,0 +1,446 @@
+@charset "UTF-8";
+
+/* 회원 등급 안내: 상단 광고와 혜택 안내 */
+.membership_page .layout_content > *:not(:last-child){ margin-bottom: 24px; }
+.membership_banner{
+  position: relative;
+  min-height: 157px;
+  border-radius: 22px;
+  background-color: var(--color_gray_900);
+}
+.membership_banner img{
+  position: absolute;
+  display: block;
+  height: auto;
+}
+.membership_banner_title{
+  z-index: 1;
+  top: 50%;
+  left: 55px;
+  width: 354px;
+  transform: translateY(-50%);
+}
+.membership_banner_decoration{
+  right: 0;
+  bottom: 0;
+  width: 356px;
+  border-radius: 0 22px 22px 0;
+  opacity: .25;
+}
+.membership_banner_crown{
+  right: 95px;
+  bottom: -15px;
+  width: 156px;
+}
+.membership_page .section_title{ margin-bottom: 16px; }
+.grade_table{
+  padding: 10px 18px 0;
+  margin-bottom: 18px;
+  border: 1px solid var(--color_border);
+  border-radius: 7px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+}
+.grade_head, .grade_row{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 28%;
+}
+.grade_cell{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 45px;
+  padding: 8px 5px;
+  font-weight: 400;
+  word-break: keep-all;
+}
+.grade_head{
+  border-bottom: 1px solid var(--color_text);
+  font-size: 14px;
+}
+.grade_row:not(:last-child){ border-bottom: 1px solid var(--color_border); }
+.grade_friend{ color: var(--color_primary); }
+.grade_family{ color: var(--color_green); }
+.grade_premium{ color: var(--color_yellow); }
+.grade_vip{ color: var(--color_red); }
+.membership_notes{
+  color: var(--color_gray_400);
+  font-size: 14px;
+  line-height: 20px;
+}
+.membership_notes li{
+  position: relative;
+  padding-left: 10px;
+  word-break: keep-all;
+}
+.membership_notes li:not(:last-child){ margin-bottom: 8px; }
+.membership_notes li::before{
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* quiz_page / pharm_think 전용. 공통 골격은 style.css에서 관리합니다. */
+.sub_page .content_card{ min-height: 132px; }
+.quiz_page .content_card_title{
+  padding-bottom: 8px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid currentColor;
+  font-weight: 500;
+}
+.quiz_today{
+  margin-right: 7px;
+  font-weight: 700;
+}
+.quiz_answer{
+  font-size: 16px;
+  line-height: 22px;
+}
+.quiz_answer_toggle{
+  padding: 5px 12px;
+  border-radius: 7px;
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+  font-size: 14px;
+  line-height: 22px;
+}
+.quiz_page .content_card:has(.quiz_answer:not(.is_completed) .quiz_answer_toggle) .content_card_title{ margin-bottom: 5px; }
+.quiz_answer_text{ font-weight: 500; }
+.quiz_answer:has(.quiz_answer_toggle) .quiz_answer_text{ display: none; }
+.quiz_answer.active .quiz_answer_text{ display: inline; }
+.quiz_answer.active .quiz_answer_toggle{ margin-left: 10px; }
+/* 참여완료 항목은 정답을 바로 표시하고 버튼을 숨깁니다. */
+.quiz_answer.is_completed .quiz_answer_text{ display: block; }
+.quiz_answer.is_completed .quiz_answer_toggle{ display: none; }
+.quiz_attendance .sidebar_heading{ margin-bottom: 14px; }
+.quiz_attendance .sidebar_title{ font-size: 14px; }
+.quiz_attendance_count{
+  color: var(--color_gray_300);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.quiz_attendance_count strong{ color: var(--color_primary); }
+.quiz_progress{
+  position: relative;
+  overflow: hidden;
+  height: 44px;
+  border: 1px solid var(--color_primary);
+  border-radius: 11px;
+  color: var(--color_primary);
+}
+.quiz_progress_fill{
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress, 0%);
+  background-color: var(--color_blue_light);
+}
+.quiz_progress_label{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 14px;
+  font-size: 14px;
+}
+.pharm_think .content_card{
+  min-height: 134px;
+  color: var(--color_gray_300);
+}
+.pharm_think .content_card.is_highlight{ color: var(--color_primary); }
+.pharm_think .content_card_meta{ margin-bottom: 6px; }
+.pharm_think .content_card.is_highlight .content_card_title, .quiz_page .is_highlight .content_card_title{
+  font-size: 18px;
+  font-weight: 700;
+}
+.think_status{ font-weight: 600; }
+.pharm_think .content_card_title{ margin-bottom: 6px; }
+.think_description{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 16px;
+  line-height: 20px;
+}
+.pharm_think .sidebar_title{ font-size: 14px; }
+/* 약사님의 생각은? 상세: 설문과 의견을 하나의 패널로 구성 */
+.pharm_think_detail .sidebar_topics{ font-size: 14px; }
+.pharm_think_detail .sidebar_topic_status{ white-space: nowrap; }
+.think_detail_nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color_border);
+  font-size: 14px;
+}
+.think_list_link{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.think_list_link img{
+  width: 18px;
+  height: 18px;
+}
+.think_post_nav{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.think_post_nav button:disabled{ color: var(--color_gray_300); }
+.think_post_nav > * + *{
+  position: relative;
+  padding-left: 16px;
+}
+.think_post_nav > * + *::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: var(--color_text);
+  transform: translateY(-50%);
+}
+.think_detail_heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.think_detail_heading h1{
+  font-size: 18px;
+  font-weight: 600;
+}
+.think_participants{
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--color_primary);
+  border-radius: var(--radius_round);
+  color: var(--color_primary);
+  font-size: 12px;
+}
+.think_period{
+  margin-bottom: 10px;
+  color: var(--color_gray_300);
+  font-size: 14px;
+}
+.think_period time{ margin-left: 5px; }
+.think_detail_description{
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 27px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.think_options{
+  display: grid;
+  gap: 10px;
+  margin: 0 0 calc(var(--padding)*1.5);
+  padding: 0 var(--padding) calc(var(--padding)*4);
+  border-bottom: 1px solid var(--color_border);
+}
+.think_option{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  overflow: hidden;
+  color: var(--color_gray_400);
+  background-color: var(--color_gray_100);
+  cursor: pointer;
+}
+.think_option input, .think_option_code, .think_option_result{
+  position: relative;
+  z-index: 1;
+}
+.think_option_gauge{
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(0%, var(--vote_rate, 0%), 100%);
+  background-color: var(--color_gray_200);
+  pointer-events: none;
+}
+.think_option input{
+  width: 14px;
+  height: 14px;
+  accent-color: var(--color_primary);
+}
+.think_option.active, .think_option:has(input:checked){
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}
+.think_option:has(input:focus-visible){
+  outline: 2px solid var(--color_primary);
+  outline-offset: 3px;
+}
+.think_option_result{
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 6px;
+  font-size: 14px;
+}
+.think_option_result strong{ font-weight: 600; }
+.think_vote_form.active .think_option_result{ display: flex; }
+.think_vote_form.active .think_option_gauge{ display: block; }
+.think_option.active .think_option_gauge{ background-color: var(--color_blue_light); }
+.think_vote_form.active .think_option{
+  border-color: var(--color_gray_200);
+  background-color: var(--color_white);
+}
+.think_vote_form.active .think_option.active{ border-color: var(--color_primary); }
+.think_option:has(input:disabled){ cursor: default; }
+.think_vote_form{ margin-bottom: 38px; }
+.think_opinion_box{
+  padding: 10px 18px;
+  margin-bottom: calc(var(--padding)*.8);
+  border: 1px solid var(--color_border);
+  border-radius: 11px;
+}
+.think_opinion{
+  display: block;
+  width: 100%;
+  min-height: 83px;
+  padding: 0 0 9px;
+  margin-bottom: 9px;
+  border: 0;
+  border-bottom: 1px solid var(--color_border);
+  background: transparent;
+  font-size: 14px;
+  line-height: 22px;
+  resize: none;
+}
+.think_opinion::placeholder{ color: var(--color_gray_300); }
+.think_opinion:focus-visible{ outline: none; }
+.think_opinion_meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color_gray_300);
+  font-size: 14px;
+}
+.think_opinion_meta small{ font-size: 12px; }
+.think_vote_submit{
+  width: 100%;
+  min-height: 37px;
+  border-radius: 7px;
+  color: var(--color_white);
+  background-color: var(--color_primary);
+  font-size: 16px;
+  font-weight: 700;
+}
+.think_vote_submit:disabled{ background-color: var(--color_gray_300); }
+/* 의견: A는 왼쪽, B는 오른쪽에 구분선 배치 */
+.think_comments_heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.think_rules_toggle{ color: var(--color_gray_300); }
+.think_rules{
+  display: none;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 7px;
+  background-color: var(--color_gray_100);
+  font-size: 14px;
+}
+.think_rules.active{ display: block; }
+.think_comment_list{
+  display: grid;
+  gap: 14px;
+}
+.think_comment.is_a{
+  padding-left: 9px;
+  border-left: 6px solid var(--color_border);
+}
+.think_comment.is_b{
+  padding-right: 9px;
+  border-right: 6px solid var(--color_border);
+}
+.think_comment.active{ border-color: var(--color_primary); }
+.think_comment.active .think_comment_card{ border-color: var(--color_primary); }
+.think_comment_card{
+  padding: 10px 18px;
+  border: 1px solid var(--color_border);
+  border-radius: 11px;
+}
+.think_comment_meta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: calc(var(--padding)*1.5);
+  color: var(--color_gray_400);
+  font-size: 14px;
+}
+.think_comment_choice{
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
+  margin-left: 9px;
+}
+.think_comment_choice::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: currentColor;
+  transform: translateY(-50%);
+}
+.think_comment_actions{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.think_comment_actions > span:first-child{ margin-right: 10px; }
+.think_comment_actions button + button{
+  position: relative;
+  padding-left: 8px;
+}
+.think_comment_actions button + button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: var(--color_gray_400);
+  transform: translateY(-50%);
+}
+.think_comment_text{
+  font-size: 15px;
+  line-height: 1.5em;
+  overflow-wrap: anywhere;
+}
+.think_detail{ margin-bottom: 24px; }
+.think_related .content_list{ margin-bottom: 0; }
+@media (hover: hover){
+  .think_detail_nav a:hover, .think_comment_actions button:hover, .think_rules_toggle:hover{ color: var(--color_primary); }
+  .think_vote_submit:not(:disabled):hover{ background-color: var(--color_primary_hover); }
+}

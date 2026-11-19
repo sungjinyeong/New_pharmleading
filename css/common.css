@@ -1,0 +1,60 @@
+/* 콘텐츠 1220px + 좌우 패딩 20px씩 = 고정 1260px */
+.container{
+  width: calc(var(--container_width) + var(--page_gutter) * 2);
+  padding-inline: var(--page_gutter);
+  margin-inline: auto;
+}
+
+/* 전체 너비 배경 안에서 콘텐츠 시작선을 container와 맞춥니다.
+   직계 부모가 전체 화면 너비일 때 사용합니다. */
+.container_full{ padding-inline: max(var(--page_gutter), calc((100% - var(--container_width)) / 2)); }
+
+.section{ padding-block: var(--section_space); }
+
+/* flex 열 계산: <div class="flex_wrap"><div class="col_2">...</div>...</div>
+   너비 계산과 gap이 일치하도록 부모에서 --grid_gap을 변경합니다. */
+.flex_wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid_gap);
+}
+.flex_wrap > *{ min-width: 0; }
+.col_2{ flex: 0 0 var(--column_2); }
+.col_3{ flex: 0 0 var(--column_3); }
+.col_4{ flex: 0 0 var(--column_4); }
+
+.flex{ display: flex; }
+.flex_column{ flex-direction: column; }
+.items_center{ align-items: center; }
+.justify_center{ justify-content: center; }
+.justify_between{ justify-content: space-between; }
+.flex_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 호버: 글자만 변경하거나 배경과 글자를 함께 변경합니다.
+   예: class="bg_primary hover_bg_primary px_24 py_12"
+   예: class="hover_primary" */
+.hover_primary,
+.hover_bg_primary{ transition: color var(--transition_fast), background-color var(--transition_fast); }
+.hover_primary:focus-visible:not(:disabled){ color: var(--color_primary_hover); }
+.hover_bg_primary:focus-visible:not(:disabled){
+  color: var(--color_white);
+  background-color: var(--color_primary_hover);
+}
+@media (hover: hover){
+  .hover_primary:hover:not(:disabled){ color: var(--color_primary_hover); }
+  .hover_bg_primary:hover:not(:disabled){
+    color: var(--color_white);
+    background-color: var(--color_primary_hover);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .hover_primary, .hover_bg_primary{ transition: none; }
+}
+
+.w_full{ width: 100%; }
+.mx_auto{ margin-inline: auto; }
+

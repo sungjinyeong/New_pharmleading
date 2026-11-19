@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필기체 메모 타이핑</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+    <style>
+      *{ box-sizing: border-box; }
+      body{
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 36px 24px;
+        /* background-color: #eeeae3; */
+        color: #424940;
+      }
+      .memo{
+        position: relative;
+        width: min(100%, 510px);
+        padding: 44px 34px 32px;
+        border-radius: 3px;
+        /* background-color: #fffdf3; */
+        box-shadow: 0 16px 40px #594e3414, 0 2px 5px #594e3410;
+        /* transform: rotate(-2deg); */
+      }
+      .memo::before{
+        /* content: ""; */
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        width: 118px;
+        height: 34px;
+        background-color: #bdc6a6b3;
+        transform: translateX(-50%) rotate(4deg);
+      }
+      .memo_heading{
+        margin: 0 0 20px;
+        color: #7f8c6a;
+        font-family: "Nanum Pen Script", "궁서", cursive;
+        font-size: 28px;
+        font-weight: 400;
+      }
+      .memo_paper{
+        min-height: 192px;
+        margin-bottom: 24px;
+        background: repeating-linear-gradient(transparent 0 47px, #e8e5d6 47px 48px);
+      }
+      .memo_text{
+        margin: 0;
+        font-family: "Nanum Pen Script", "궁서", cursive;
+        font-size: clamp(25px, 5vw, 34px);
+        line-height: 48px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .memo_cursor{
+        display: inline-block;
+        width: 2px;
+        height: 27px;
+        margin-left: 3px;
+        background-color: #7f8c6a;
+        vertical-align: -4px;
+        animation: cursor_blink 1s step-end infinite;
+      }
+      .memo_footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .memo_signature{
+        font-family: "Nanum Pen Script", "궁서", cursive;
+        font-size: 23px;
+        color: #8d927f;
+      }
+      .memo_toggle{
+        padding: 7px 12px;
+        border: 1px solid #dadfce;
+        border-radius: 20px;
+        background: transparent;
+        color: #737d65;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .memo_toggle:focus-visible{
+        outline: 2px solid #8d9c76;
+        outline-offset: 3px;
+      }
+      .memo.paused .memo_cursor{ animation: none; }
+      @keyframes cursor_blink{
+        0%, 100%{ opacity: 1; }
+        50%{ opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce){
+        .memo_cursor{ animation: none; }
+      }
+    </style>
+</head>
+<body>
+    <main class="memo">
+        <!-- <h1 class="memo_heading">오늘의 작은 메모</h1> -->
+        <div class="memo_paper">
+            <p class="memo_text"><span class="memo_typing"></span><span class="memo_cursor"></span></p>
+        </div>
+        <div class="memo_footer">
+            <!-- <span class="memo_signature">나에게 남기는 한 줄 :)</span> -->
+            <button class="memo_toggle" type="button">멈추게할re</button>
+        </div>
+    </main>
+    <script>
+        (() => {
+            // 문구와 속도는 여기에서 변경합니다. 시간 단위: ms
+            const messages = [
+                '오늘도 이상한걸 들고와서\n이상한걸 요청하거\n 집가고싶다 퇴근 30분전',
+                // '하\n퇴근 30분전\n'
+            ];
+            const typingSpeed = 130;
+            const deletingSpeed = 55;
+            const readingPause = 2300;
+            const nextPause = 650;
+            const memo = document.querySelector('.memo');
+            const text = document.querySelector('.memo_typing');
+            const toggle = document.querySelector('.memo_toggle');
+            let messageIndex = 0;
+            let characterIndex = 0;
+            let deleting = false;
+            let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let timer;
+
+            function tick() {
+                if (paused) return;
+                const characters = Array.from(messages[messageIndex]);
+                characterIndex += deleting ? -1 : 1;
+                text.textContent = characters.slice(0, characterIndex).join('');
+                let delay = deleting ? deletingSpeed : typingSpeed;
+                if (!deleting && characterIndex === characters.length) {
+                    deleting = true;
+                    delay = readingPause;
+                } else if (deleting && characterIndex === 0) {
+                    deleting = false;
+                    messageIndex = (messageIndex + 1) % messages.length;
+                    delay = nextPause;
+                }
+                timer = setTimeout(tick, delay);
+            }
+
+            toggle.addEventListener('click', () => {
+                paused = !paused;
+                memo.classList.toggle('paused', paused);
+                toggle.textContent = paused ? '다시 쓰기' : '잠깐 멈추기';
+                clearTimeout(timer);
+                if (!paused) tick();
+            });
+
+            if (paused) {
+                text.textContent = messages[0];
+                characterIndex = Array.from(messages[0]).length;
+                deleting = true;
+                memo.classList.add('paused');
+                toggle.textContent = '다시 쓰기';
+            } else {
+                timer = setTimeout(tick, nextPause);
+            }
+        })();
+    </script>
+</body>
+</html>

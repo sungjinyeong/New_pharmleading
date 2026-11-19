@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+:root{
+  --font_family: "Pretendard Variable", Pretendard, "Malgun Gothic", sans-serif;
+  --color_primary: #1C73E6;
+  --color_blue: #1C73E6;
+  --color_green: #35AA51;
+  --color_yellow: #FCBC05;
+  --color_red: #FF0040;
+  --color_text: #1A1A1A;
+  --color_muted: #949494;
+  --color_border: #F0F1F3;
+  --color_surface: #F5F6F8;
+  --color_white: #FFFFFF;
+  --container_width: 1024px;
+  --padding: 10px;
+  --page_gutter: calc(var(--padding) * 1.8);
+  --header_height: 57px;
+  --header_nav_height: 57px;
+  --menu_width: min(326px, calc(100% - 64px));
+}
+@media (min-width: 600px){
+  :root{
+    --page_gutter: calc(var(--padding) * 2.4);
+    --menu_width: 360px;
+  }
+}
+@media (min-width: 768px){
+  :root{ --page_gutter: calc(var(--padding) * 3.2); }
+}

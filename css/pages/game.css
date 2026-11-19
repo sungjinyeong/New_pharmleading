@@ -1,0 +1,427 @@
+@charset "UTF-8";
+/* 공통 875px / 290px 레이아웃, 박스, 멤버십, 푸터는 style.css 재사용 */
+/* 상단 광고와 게임 / 당첨 상품 배치 */
+.game_banner{
+  position: relative;
+  min-height: 157px;
+  margin-bottom: calc(var(--padding)*4);
+  border-radius: 22px;
+  background-color: var(--color_blue_light);
+}
+.game_banner img{
+  position: absolute;
+  display: block;
+  height: auto;
+}
+.game_banner_title{
+  z-index: 1;
+  top: 50%;
+  left: 55px;
+  transform: translateY(-50%);
+  width: 465px;
+}
+.game_banner_decoration{
+  bottom: 0px;
+  right: 0;
+  width: 356px;
+}
+.game_banner_clover{
+  right: 85px;
+  bottom: -25px;
+  width: 165px;
+}
+.game_play{
+  display: grid;
+  grid-template-columns: 375px minmax(0, 1fr);
+  gap: 35px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+.game_rewards{ min-width: 0; }
+.game_vitamins{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 22px 35px;
+  padding: 10px 12px;
+  isolation: isolate;
+}
+.game_vitamins li{ min-width: 0; }
+.game_vitamin{
+  --bottle-color: #00c7b0;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 91px;
+  margin-inline: auto;
+  border-radius: 16px;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .25s, filter .25s;
+}
+.game_vitamin[data-vitamin="b"]{ --bottle-color: #a748ed; }
+.game_vitamin[data-vitamin="c"]{ --bottle-color: #ffc638; }
+.game_vitamin[data-vitamin="d"]{ --bottle-color: #fc548b; }
+.game_vitamin[data-vitamin="e"]{ --bottle-color: #00cd79; }
+.game_vitamin[data-vitamin="k"]{ --bottle-color: #339fff; }
+.game_vitamin:focus-visible{
+  outline: 3px solid var(--bottle-color);
+  outline-offset: 10px;
+}
+.game_bottle{
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 91 / 164;
+  transform-origin: 50% 95%;
+  transition: transform .25s;
+}
+.game_bottle::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -8px;
+  left: 10%;
+  width: 80%;
+  height: 14px;
+  background: #18334720;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+.game_bottle img{
+  position: absolute;
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.game_bottle_body{
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.game_bottle_cap{
+  width: 91.2088%;
+  top: 0;
+  left: 4.3956%;
+  z-index: 3;
+  transform-origin: 70% 80%;
+}
+.game_click{
+  position: absolute;
+  z-index: 4;
+  top: 12%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #777;
+  background: #fff;
+  box-shadow: 0 3px 9px #15204d25;
+  font-size: 14px;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation: game-invite 2.4s ease-in-out infinite;
+}
+.game_vitamins li:nth-child(2n) .game_click{ animation-delay: .35s; }
+.game_vitamins li:nth-child(3n) .game_click{ animation-delay: .7s; }
+.game_vitamins.is_busy .game_vitamin:not(.is_selected){
+  opacity: .35;
+  filter: saturate(.45);
+}
+.game_vitamin.is_selected{ z-index: 5; }
+.game_vitamin.is_selected .game_click{
+  animation: none;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.game_vitamin.is_shaking .game_bottle{ animation: game-shake .65s ease-in-out both; }
+.game_vitamin.is_open .game_bottle_cap{ animation: game-cap-open .85s cubic-bezier(.2,.65,.3,1) forwards; }
+.game_vitamin.is_open .game_bottle_body{ animation: game-recoil .55s ease-out; }
+.game_bottle_glow{
+  position: absolute;
+  z-index: 1;
+  width: 180%;
+  height: 130%;
+  left: -40%;
+  top: -50%;
+  opacity: 0;
+  background: radial-gradient(ellipse, #fff8c9 0%, var(--bottle-color) 20%, transparent 65%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+.is_open .game_bottle_glow{ animation: game-glow 1.4s ease-out both; }
+.game_particles{
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 17%;
+  pointer-events: none;
+}
+.game_particle{
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--particle-color);
+  opacity: 0;
+}
+.is_open .game_particle{ animation: game-particle .95s var(--delay) ease-out both; }
+@keyframes game-particle{
+  0%{
+    opacity: 0;
+    transform: translate(0, 0) scale(.3);
+  }
+  12%{ opacity: 1; }
+  100%{
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) rotate(var(--spin)) scale(.6);
+  }
+}
+@media (hover: hover){
+  .game_vitamin:not(:disabled):hover .game_bottle{ transform: translateY(-7px) rotate(-2deg); }
+}
+@keyframes game-invite{
+  0%, 70%, 100%{ transform: translate(-50%, 0); }
+  80%{ transform: translate(-50%, -4px); }
+  90%{ transform: translate(-50%, 0); }
+}
+@keyframes game-shake{
+  0%, 100%{ transform: rotate(0); }
+  20%, 60%{ transform: rotate(-7deg) translateY(-2px); }
+  40%, 80%{ transform: rotate(7deg) translateY(-2px); }
+}
+@keyframes game-cap-open{
+  0%{ transform: translate(0, 0) rotate(0); }
+  30%{
+    transform: translate(-5%, -80%) rotate(-15deg);
+    opacity: 1;
+  }
+  100%{
+    transform: translate(40%, -230%) rotate(32deg);
+    opacity: 0;
+  }
+}
+@keyframes game-recoil{
+  25%{ transform: translateY(5px) scaleY(.97); }
+  65%{ transform: translateY(-3px); }
+  100%{ transform: none; }
+}
+@keyframes game-glow{
+  0%{
+    opacity: 0;
+    transform: scale(.5);
+  }
+  30%{ opacity: .85; }
+  100%{
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+/* 쿠폰 / 포인트 선택 팝업 */
+.game_payment_popup > .result_panel{
+  width: min(302px, 100%);
+  padding: 18px;
+}
+.game_payment_title{
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.game_payment_options{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+.game_payment_option{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 70px;
+  padding: 0 8px 8px;
+  color: var(--color_gray_300);
+}
+.game_payment_option + .game_payment_option::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  transform: translateY(-50%);
+  background-color: var(--color_gray_100);
+}
+.game_payment_label{
+  margin-bottom: 14px;
+  padding: 2px 14px;
+  border-radius: var(--radius_round);
+  background-color: var(--color_gray_100);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.game_payment_balance{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.game_payment_point_icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+  border-radius: 50%;
+  color: var(--color_white);
+  background-color: var(--color_gray_300);
+  font-size: 10px;
+  line-height: 14px;
+}
+.game_payment_option.active{ color: var(--color_black); }
+.game_payment_option.active .game_payment_label{ background-color: var(--color_blue_light); }
+@media (hover: hover){
+  .game_payment_option:hover{ color: var(--color_black); }
+  .game_payment_option:hover .game_payment_label{ background-color: var(--color_blue_light); }
+}
+
+/* main의 공통 popup / result_panel / result_confirm 재사용 */
+.game_result .result_panel{
+  position: relative;
+  isolation: isolate;
+  padding: 24px 20px 18px;
+  text-align: center;
+}
+.game_result .result_icon{
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: auto;
+  margin: 0 auto calc(var(--padding) *1.5);
+}
+.game_result .result_icon > img:not(.game_result_fireworks){
+  position: relative;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.game_result .result_message{
+  position: relative;
+  z-index: 1;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.game_result .result_message h2{
+  font-size: 16px;
+  font-weight: 700;
+}
+.game_result .result_confirm{
+  position: relative;
+  z-index: 1;
+}
+.game_result .result_icon > .game_result_fireworks{
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 60%;
+  width: 300px;
+  height: auto;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce){
+  .game_vitamin, .game_bottle, .game_click{ transition: none; }
+  .game_click, .game_vitamin.is_shaking .game_bottle, .game_vitamin.is_open .game_bottle_body, .game_vitamin.is_open .game_bottle_cap, .is_open .game_bottle_glow{ animation: none; }
+  .game_vitamin.is_open .game_bottle_cap{ opacity: 0; }
+  .game_particles, .game_result_fireworks{ display: none; }
+}
+.game_prizes{ margin-bottom: 12px; }
+.game_prizes .section_heading{ margin-bottom: 20px; }
+.game_prize_list{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 16px;
+  text-align: center;
+}
+.game_prize_list li{
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.game_prize_image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  margin-bottom: 8px;
+}
+.game_prize_image img{
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.game_prize_clover{
+  font-size: 60px;
+  line-height: 1;
+}
+.game_winners{
+  min-height: 44px;
+  padding-inline: 18px;
+  background-color: var(--color_blue_light);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.game_notice_list{
+  display: grid;
+  gap: 8px;
+  color: var(--color_gray_400);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.game_notice_list li{
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.game_notice_list li::before{
+  content: "·";
+  flex-shrink: 0;
+}
+.game_links{
+  display: grid;
+  gap: 12px;
+}
+.game_links a{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 54px;
+  padding-inline: 18px;
+  border: 1px solid var(--color_primary);
+  border-radius: 10px;
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px var(--color_shadow_section);
+}
+.game_link_arrow{
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,526 @@
+/* 메인 이벤트 배너 */
+.main_events{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+.main_events_swiper{
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.main_events_wrapper{
+  display: flex;
+  align-items: stretch;
+}
+.main_events_wrapper > .event_card{
+  width: 100%;
+  height: 215px;
+  flex-shrink: 0;
+}
+.main_events_swiper:not(.swiper-initialized) > .main_events_wrapper{ gap: 14px; }
+.event_card{
+  position: relative;
+  min-width: 0;
+  min-height: 215px;
+  padding: calc(var(--padding) * 1.8);
+  overflow: hidden;
+  border-radius: 20px;
+  color: var(--color_white);
+  background-color: var(--color_gray_900);
+}
+.event_label{
+  margin-bottom: calc(var(--padding) * 0.8);
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  line-height: 20px;
+}
+.event_title{
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 158px);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1em;
+  letter-spacing: -1px;
+  word-break: keep-all;
+}
+.event_vitamin, .event_welcome, .event_invite{
+  display: flex;
+  flex-direction: column;
+}
+.event_description{
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.5;
+}
+/* 이미지 파일을 넣으면 지정 영역 안에서 원본 비율로 표시됩니다. */
+.event_image{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 160px;
+  height: 115px;
+  pointer-events: none;
+}
+.event_welcome .event_image{
+  top: auto;
+  bottom: 0;
+  width: 190px;
+  height: 192px;
+}
+.event_image img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+/* EVENT 3: 친구 초대 */
+.event_invite_title{ width: calc(100% - 160px); }
+.event_invite_description{ font-size: 12px; }
+.event_invite_image{
+  top: auto;
+  right: 12px;
+  bottom: 0;
+  width: 175px;
+  height: 190px;
+}
+/* NOTICE: 회원등급 안내 — 행과 열을 div로 구성 */
+.event_membership_title{
+  margin-bottom: var(--padding);
+  width: calc(100% - 70px);
+}
+.event_membership_image{
+  top: 18px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+}
+.membership_table{
+  position: relative;
+  z-index: 1;
+  margin-bottom: calc(var(--padding)*1);
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: var(--color_white);
+  color: var(--color_black);
+}
+.membership_row{
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  align-items: center;
+  min-height: 17px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.membership_row + .membership_row{ border-top: 1px solid var(--color_gray_200); }
+.membership_head{ color: var(--color_gray_400); }
+.membership_head + .membership_row{ border-top-color: var(--color_gray_400); }
+.membership_cell{
+  min-width: 0;
+  text-align: center;
+}
+.membership_grade{ font-weight: 500; }
+.membership_count{ white-space: nowrap; }
+.membership_bonus{ white-space: nowrap; }
+.membership_friend .membership_grade{ color: var(--color_blue); }
+.membership_family .membership_grade{ color: var(--color_green); }
+.membership_premium .membership_grade{ color: var(--color_yellow); }
+.membership_vip .membership_grade{ color: var(--color_red); }
+.event_membership_link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  font-size: 12px;
+  line-height: 1em;
+}
+.event_membership_link::after{
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.main_events .event_winners{
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+/* 메인 섹션 사이 간격 */
+.layout_content > section:not(:last-child){ margin-bottom: calc(var(--padding) * 2.5); }
+/* 두 번째 섹션: 웰컴 이벤트 */
+.welcome_event{
+  overflow: hidden;
+  border-radius: 22px;
+  color: var(--color_black);
+  background-color: var(--color_blue_light);
+}
+.welcome_heading{ margin: 0; }
+.welcome_toggle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--padding) * 2);
+  width: 100%;
+  min-height: 60px;
+  padding: calc(var(--padding) * 1.8) calc(var(--padding) * 3.5);
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+}
+.welcome_toggle:focus-visible{
+  outline: 2px solid var(--color_primary);
+  outline-offset: -4px;
+}
+.welcome_arrow{
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+.welcome_arrow::before, .welcome_arrow::after{
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform 280ms ease, width 280ms ease, left 280ms ease;
+}
+.welcome_arrow::before{
+  left: 1px;
+  transform: rotate(45deg);
+}
+.welcome_arrow::after{
+  left: 8px;
+  transform: rotate(-45deg);
+}
+.welcome_event.active .welcome_arrow::before{
+  left: 0;
+  width: 18px;
+  transform: rotate(45deg);
+}
+.welcome_event.active .welcome_arrow::after{
+  left: 0;
+  width: 18px;
+  transform: rotate(-45deg);
+}
+/* 고정 높이 없이 내용 높이에 맞춰 펼칩니다. */
+.welcome_panel{
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 400ms ease, visibility 400ms;
+}
+.welcome_event.active .welcome_panel{
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.welcome_panel_inner{
+  min-height: 0;
+  overflow: hidden;
+}
+.welcome_content{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 335px;
+  gap: calc(var(--padding) * 4);
+  padding: 0 calc(var(--padding) * 3.5) calc(var(--padding) * 3.5);
+}
+.welcome_message{
+  margin-bottom: calc(var(--padding) * 1.5);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.welcome_message strong{
+  color: var(--color_primary);
+  font-weight: 800;
+}
+.welcome_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 324px;
+  min-height: 36px;
+  padding: calc(var(--padding) * 0.5) calc(var(--padding) * 1.6);
+  border-radius: 8px;
+  background-color: var(--color_primary);
+  color: var(--color_white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+.welcome_button:hover{ background-color: var(--color_primary_hover); }
+.welcome_progress_heading{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: calc(var(--padding) * 0.5);
+  font-size: 12px;
+  line-height: 1;
+}
+.welcome_progress_heading strong{ font-weight: 600; }
+.welcome_progress{
+  margin-bottom: calc(var(--padding) * 1.5);
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color_primary);
+  border-radius: 999px;
+  background-color: var(--color_white);
+}
+.welcome_progress_fill{
+  display: block;
+  width: clamp(0%, var(--progress, 0%), 100%);
+  height: 100%;
+  background-color: var(--color_primary);
+}
+.welcome_steps{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--padding) * 1);
+  margin-bottom: calc(var(--padding) * 1.4);
+  padding: 0;
+  list-style: none;
+}
+.welcome_step{
+  min-width: 0;
+  padding: calc(var(--padding) * 1.4) calc(var(--padding) * 0.4) calc(var(--padding) * 1.2);
+  border: 1px solid var(--color_gray_200);
+  border-radius: 10px;
+  background-color: var(--color_white);
+  color: var(--color_gray_200);
+  text-align: center;
+}
+.welcome_step_label{
+  display: block;
+  margin-bottom: calc(var(--padding) * 1.2);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.welcome_step_point{
+  display: block;
+  margin-bottom: calc(var(--padding) * 1.2);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.welcome_step_description{
+  font-size: 12px;
+  line-height: 1.2;
+}
+.welcome_star{ color: var(--color_yellow); }
+.welcome_step.active{
+  border-color: var(--color_primary);
+  color: var(--color_black);
+}
+.welcome_note{
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (prefers-reduced-motion: reduce){
+  .welcome_panel, .welcome_arrow::before, .welcome_arrow::after{ transition: none; }
+}
+/* 팜포인트 모으기 */
+.point_grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--padding) * 1.4);
+  padding: 0;
+  list-style: none;
+}
+.point_card{ min-width: 0; }
+.point_card_link{
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  align-items: center;
+  gap: calc(var(--padding) * 1);
+  height: 140px;
+  overflow: hidden;
+  padding: calc(var(--padding) * 1) calc(var(--padding) * 1.8);
+  border: 1px solid var(--color_gray_200);
+  border-radius: 10px;
+  background-color: var(--color_white);
+  transition: .15s;
+}
+.point_card_link:hover{ border-color: var(--color_border_hover); }
+.point_card_link:focus-visible{
+  outline: 2px solid var(--color_primary);
+  outline-offset: 2px;
+}
+.point_badges{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  gap: calc(var(--padding) * .2);
+}
+.point_badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 23px;
+  padding-inline: calc(var(--padding) * 1);
+  border-radius: 7px;
+  background-color: var(--color_gray_900);
+  color: var(--color_white);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+.point_badge_star{ padding-inline: calc(var(--padding) * .8); }
+.point_star{
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.point_image{
+  width: 80px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.point_image img{
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.point_info{
+  min-width: 0;
+  text-align: center;
+}
+.point_category{
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: calc(var(--padding) * .5);
+  font-size: 12px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.point_title{
+  height: 2.7em;
+  margin-bottom: calc(var(--padding) * .8);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+.point_description{
+  height: 2.6em;
+  color: var(--color_gray_400);
+  font-size: 12px;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+.point_date{
+  display: block;
+  color: var(--color_gray_400);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: right;
+}
+/* 팜포인트 교환 SHOP */
+.shop_rows{
+  display: grid;
+  gap: calc(var(--padding) * 1.4);
+}
+.shop_row{
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  gap: calc(var(--padding) * 1.6);
+  min-height: 156px;
+  padding: calc(var(--padding) * 1) calc(var(--padding) * 1.8);
+  border: 1px solid var(--color_gray_200);
+  border-radius: 10px;
+}
+.shop_points{
+  display: flex;
+  align-items: center;
+  gap: calc(var(--padding) * .4);
+  white-space: nowrap;
+}
+.shop_point_icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color_gray_300);
+  color: var(--color_white);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+.shop_point_amount{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.shop_products{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: calc(var(--padding) * 1);
+}
+.shop_product{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  gap: calc(var(--padding) * 0.5);
+  color: var(--color_text);
+  text-align: center;
+  cursor: pointer;
+}
+.shop_product_image{
+  border-radius: 10px;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100px;
+  height: 100px;
+}
+.shop_product_image img{
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.shop_product_name{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.shop_product:hover .shop_product_name{ color: var(--color_primary); }
+.shop_product:focus-visible{
+  outline: 2px solid var(--color_primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+/* 상품명·부가설명: 한 줄이어도 두 줄 공간을 유지하고 초과분은 말줄임 */
+.point_title, .point_description{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}

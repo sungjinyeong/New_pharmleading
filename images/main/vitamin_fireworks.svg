@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" fill="none">
+  <!-- 3:2 캔버스, 점·선 모양은 유지하고 가로 위치만 확장. 비대칭 위치와 서로 다른 주기: 상품 뒤에서 점과 선이 불규칙하게 퍼집니다. -->
+  <style>
+    .spark { transform-origin: 105px 80px; animation: burst var(--time, 2s) var(--delay, 0s) ease-out infinite; }
+    path.spark { stroke-dasharray: 1; animation-name: burst, trail; }
+    @keyframes burst {
+      0% { transform: scale(.55) rotate(-7deg); opacity: 0; }
+      14% { opacity: 1; }
+      55% { opacity: 1; }
+      90%, 100% { transform: scale(1.18) rotate(5deg); opacity: 0; }
+    }
+    @keyframes trail {
+      0%, 12% { stroke-dashoffset: 1; }
+      32% { stroke-dashoffset: 0; }
+      75%, 100% { stroke-dashoffset: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .spark { animation: none; opacity: 0; } }
+  </style>
+  <g stroke-width="3.5" stroke-linecap="round">
+    <path class="spark" pathLength="1" stroke="#9361e5" d="M46.5 43l-10-12" style="--time:2.1s;--delay:-.3s"/>
+    <path class="spark" pathLength="1" stroke="#21d27b" d="M180 35l15-15" style="--time:1.9s;--delay:-.1s"/>
+    <path class="spark" pathLength="1" stroke="#1269fb" d="M58.5 112l-9 9" style="--time:2.3s;--delay:-.45s"/>
+    <path class="spark" pathLength="1" stroke="#fc214e" d="M154.5 123l12 14" style="--time:2s;--delay:-.2s"/>
+  </g>
+  <g>
+    <circle class="spark" fill="#fc214e" cx="123" cy="36" r="3" style="--time:1.85s;--delay:-.25s"/>
+    <circle class="spark" fill="#21d27b" cx="52.5" cy="75" r="3" style="--time:2.2s;--delay:-.55s"/>
+    <circle class="spark" fill="#1269fb" cx="169.5" cy="98" r="3" style="--time:2.05s;--delay:-.35s"/>
+    <circle class="spark" fill="#9361e5" cx="112.5" cy="120" r="1.8" style="--time:1.7s;--delay:-.1s"/>
+    <circle class="spark" fill="#21d27b" cx="90" cy="135" r="3" style="--time:2.4s;--delay:-.65s"/>
+  </g>
+</svg>

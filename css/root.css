@@ -1,0 +1,79 @@
+:root{
+  /* CSS 변수의 시작 --는 필수 문법이며, 이름 구분은 _를 사용합니다. */
+
+  /* Pretendard Variable: HTML의 CDN 링크로 로드합니다. */
+  --font_family: "Pretendard Variable", Pretendard, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+
+  /* 컬러 베이스 */
+  --color_slate: #F8FAFC;
+  --color_blue_light: #DCEBFF;
+  --color_blue: #1C73E6;
+  --color_green: #35AA51;
+  --color_yellow: #FCBC05;
+  --color_red: #FF0040;
+
+  /* 무채색 베이스: 밝은 순서 */
+  --color_gray_100: #F2F2F2;
+  --color_gray_200: #DFDFDF;
+  --color_gray_300: #AFAFAF;
+  --color_gray_400: #949494;
+  --color_gray_900: #1A1A1A;
+  --color_black: #000000;
+  --color_white: #FFFFFF;
+
+  /* 용도별 연결 */
+  --color_primary: var(--color_blue);
+  --color_primary_hover: color-mix(in srgb, var(--color_primary) 85%, var(--color_black));
+  --color_secondary: var(--color_green);
+  --color_secondary_hover: color-mix(in srgb, var(--color_secondary) 85%, var(--color_black));
+  --color_text: var(--color_gray_900);
+  --color_text_sub: var(--color_gray_400);
+  --color_text_muted: var(--color_gray_300);
+  --color_border: var(--color_gray_200);
+  --color_border_hover: #B8C8D9;
+  --color_shadow_header: #00000026;
+  --color_shadow_section: color-mix(in srgb, var(--color_black) 5%, transparent);
+  --color_bg: var(--color_white);
+  --color_surface: var(--color_slate);
+  --color_success: var(--color_green);
+  --color_warning: var(--color_yellow);
+  --color_error: var(--color_red);
+
+  /* PC 고정: 콘텐츠 1220px + 좌우 여백 20px씩 */
+  --container_width: 1220px;
+  --page_gutter: calc(var(--padding) * 2);
+  --padding: 10px;
+  --grid_gap: calc(var(--padding) * 2.4);
+  --section_space: calc(var(--padding) * 6.4);
+
+  /* calc 재사용: 간격 절반, 컨테이너 절반, 동일 너비 열 */
+  --space_half: calc(var(--grid_gap) / 2);
+  --container_half: calc(var(--container_width) / 2);
+  --column_2: calc((100% - var(--grid_gap)) / 2);
+  --column_3: calc((100% - var(--grid_gap) * 2) / 3);
+  --column_4: calc((100% - var(--grid_gap) * 3) / 4);
+
+  --radius_4: 4px;
+  --radius_8: 8px;
+  --radius_12: 12px;
+  --radius_round: 999px;
+  --transition_fast: 150ms ease;
+  --transition_base: 250ms ease;
+  --z_header: 100;
+  --z_dropdown: 200;
+  --z_overlay: 900;
+  --z_modal: 1000;
+}
+
+/* 기본 페이지 스타일 */
+body{
+  min-width: calc(var(--container_width) + var(--page_gutter) * 2);
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font_family);
+  font-size: var(--font_size_base);
+  font-weight: var(--font_weight_regular);
+  line-height: var(--line_height_base);
+  color: var(--color_text);
+  background-color: var(--color_slate);
+}
