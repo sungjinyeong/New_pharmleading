@@ -1,0 +1,343 @@
+@charset "UTF-8";
+
+/* 배너는 전체 너비, 카피와 장식은 공통 컨테이너 안에서 배치 */
+.game_banner{
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(circle at 55% 5%, #FFFFFF 0 4px, transparent 5px),
+    radial-gradient(circle at 85% 20%, #FFFFFF 0 3px, transparent 4px), #DCEAFF;
+}
+.game_banner > .container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 176px;
+  padding-block: 28px;
+}
+.game_banner_copy{ position: relative; z-index: 2; max-width: 66%; }
+.game_banner_label{ margin-bottom: 8px; color: var(--color_primary); font-size: 14px; font-weight: 600; }
+.game_banner_title{
+  color: var(--color_text);
+  font-size: clamp(26px, 7.2vw, 42px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  white-space: nowrap;
+}
+.game_banner_title span{ color: var(--color_primary); }
+.game_banner_decoration{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(80%, 356px);
+  height: auto;
+  pointer-events: none;
+}
+.game_banner_clover{
+  position: absolute;
+  right: var(--page_gutter);
+  bottom: -12px;
+  width: clamp(120px, 39vw, 230px);
+  height: auto;
+  pointer-events: none;
+}
+.game_play{
+  padding-block: 28px 10px;
+  border-bottom: 10px solid var(--color_surface);
+  background: linear-gradient(#F8FAFC, #FFFFFF 48%);
+}
+.game_vitamins{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 24px clamp(16px, 5vw, 32px);
+  max-width: 620px;
+  padding: 0 0 20px;
+  margin-inline: auto;
+  isolation: isolate;
+}
+.game_vitamins li{ min-width: 0; }
+.game_vitamin{
+  --bottle-color: #00c7b0;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 91px;
+  margin-inline: auto;
+  border-radius: 16px;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .25s, filter .25s;
+}
+.game_vitamins li:nth-child(2) .game_vitamin{ --bottle-color: #a748ed; }
+.game_vitamins li:nth-child(3) .game_vitamin{ --bottle-color: #ffc638; }
+.game_vitamins li:nth-child(4) .game_vitamin{ --bottle-color: #fc548b; }
+.game_vitamins li:nth-child(5) .game_vitamin{ --bottle-color: #00cd79; }
+.game_vitamins li:nth-child(6) .game_vitamin{ --bottle-color: #339fff; }
+.game_vitamin:focus-visible{
+  outline: 3px solid var(--bottle-color);
+  outline-offset: 10px;
+}
+.game_bottle{
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 91 / 164;
+  transform-origin: 50% 95%;
+  transition: transform .25s;
+}
+.game_bottle::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -8px;
+  left: 10%;
+  width: 80%;
+  height: 14px;
+  background: #18334720;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+.game_bottle img{
+  position: absolute;
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.game_bottle_body{
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.game_bottle_cap{
+  width: 91.2088%;
+  top: 0;
+  left: 4.3956%;
+  z-index: 3;
+  transform-origin: 70% 80%;
+}
+.game_click{
+  position: absolute;
+  z-index: 4;
+  top: 12%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #777;
+  background: #fff;
+  box-shadow: 0 3px 9px #15204d25;
+  font-size: 14px;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation: game-invite 2.4s ease-in-out infinite;
+}
+.game_vitamins li:nth-child(2n) .game_click{ animation-delay: .35s; }
+.game_vitamins li:nth-child(3n) .game_click{ animation-delay: .7s; }
+.game_vitamins.is_busy .game_vitamin:not(.is_selected){
+  opacity: .35;
+  filter: saturate(.45);
+}
+.game_vitamin.is_selected{ z-index: 5; }
+.game_vitamin.is_selected .game_click{
+  animation: none;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.game_vitamin.is_shaking .game_bottle{ animation: game-shake .65s ease-in-out both; }
+.game_vitamin.is_open .game_bottle_cap{ animation: game-cap-open .85s cubic-bezier(.2,.65,.3,1) forwards; }
+.game_vitamin.is_open .game_bottle_body{ animation: game-recoil .55s ease-out; }
+.game_bottle_glow{
+  position: absolute;
+  z-index: 1;
+  width: 180%;
+  height: 130%;
+  left: -40%;
+  top: -50%;
+  opacity: 0;
+  background: radial-gradient(ellipse, #fff8c9 0%, var(--bottle-color) 20%, transparent 65%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+.is_open .game_bottle_glow{ animation: game-glow 1.4s ease-out both; }
+.game_particles{
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 17%;
+  pointer-events: none;
+}
+.game_particle{
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--particle-color);
+  opacity: 0;
+}
+.is_open .game_particle{ animation: game-particle .95s var(--delay) ease-out both; }
+@keyframes game-particle{
+  0%{
+    opacity: 0;
+    transform: translate(0, 0) scale(.3);
+  }
+  12%{ opacity: 1; }
+  100%{
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) rotate(var(--spin)) scale(.6);
+  }
+}
+@media (hover: hover){
+  .game_vitamin:not(:disabled):hover .game_bottle{ transform: translateY(-7px) rotate(-2deg); }
+}
+@keyframes game-invite{
+  0%, 70%, 100%{ transform: translate(-50%, 0); }
+  80%{ transform: translate(-50%, -4px); }
+  90%{ transform: translate(-50%, 0); }
+}
+@keyframes game-shake{
+  0%, 100%{ transform: rotate(0); }
+  20%, 60%{ transform: rotate(-7deg) translateY(-2px); }
+  40%, 80%{ transform: rotate(7deg) translateY(-2px); }
+}
+@keyframes game-cap-open{
+  0%{ transform: translate(0, 0) rotate(0); }
+  30%{
+    transform: translate(-5%, -80%) rotate(-15deg);
+    opacity: 1;
+  }
+  100%{
+    transform: translate(40%, -230%) rotate(32deg);
+    opacity: 0;
+  }
+}
+@keyframes game-recoil{
+  25%{ transform: translateY(5px) scaleY(.97); }
+  65%{ transform: translateY(-3px); }
+  100%{ transform: none; }
+}
+@keyframes game-glow{
+  0%{
+    opacity: 0;
+    transform: scale(.5);
+  }
+  30%{ opacity: .85; }
+  100%{
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+/* 오늘의 당첨: 제목 고정, 내용이 넘칠 때만 흐름 */
+.game_winners{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background-color: #DCEAFF;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.game_winners_label{ flex-shrink: 0; font-weight: 600; }
+.game_winners_viewport{ flex: 1; min-width: 0; overflow: hidden; }
+.game_winners_track{ display: flex; width: max-content; }
+.game_winners_group{ display: flex; flex-shrink: 0; }
+.game_winners_item{ padding-right: 16px; white-space: nowrap; }
+.game_winners_item::after{ content: "/"; margin-left: 16px; }
+.game_winners_track.active{ animation: game_winners_flow 24s linear infinite; }
+.game_winners:hover .game_winners_track,
+.game_winners:active .game_winners_track{ animation-play-state: paused; }
+@keyframes game_winners_flow{ to{ transform: translateX(-50%); } }
+
+.game_prizes, .game_notice{
+  padding-block: 22px 24px;
+  border-bottom: 10px solid var(--color_surface);
+  background-color: var(--color_white);
+}
+.game_heading{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-bottom: 20px;
+}
+.game_section_title{ font-size: 18px; font-weight: 600; line-height: 1.4; }
+.game_description{ color: var(--color_muted); font-size: 12px; font-weight: 400; line-height: 1.5; }
+.game_prize_list{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 12px;
+  text-align: center;
+}
+.game_prize_list li{ min-width: 0; }
+.game_prize_image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  margin-bottom: 8px;
+}
+.game_prize_image img{
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.game_prize_name{ font-size: 14px; font-weight: 400; line-height: 1.35; word-break: keep-all; }
+.game_notice .game_section_title{ margin-bottom: 14px; }
+.game_notice_list{ display: grid; gap: 6px; color: var(--color_muted); font-size: 14px; font-weight: 400; line-height: 1.8; }
+.game_notice_list li{ position: relative; padding-left: 10px; overflow-wrap: break-word; }
+.game_notice_list li::before{ content: "·"; position: absolute; top: 0; left: 0; }
+.game_links{ background-color: #DCEAFF; }
+.game_links a{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 58px;
+  padding-block: 14px;
+  color: var(--color_primary);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.game_links a + a{ border-top: 1px solid #FFFFFFB3; }
+.game_link_arrow{ flex-shrink: 0; width: 9px; height: 9px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+@media (max-width: 359px){
+  .game_prize_list{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .game_prize_image{ height: 84px; }
+}
+@media (min-width: 600px){
+  .game_banner > .container{ min-height: 220px; }
+  .game_banner_clover{ right: calc(var(--page_gutter) + 20px); bottom: -16px; }
+  .game_vitamins{ gap: 32px 44px; }
+  .game_play{ padding-top: 36px; }
+  .game_prizes, .game_notice{ padding-block: 28px; }
+  .game_prize_list{ gap: 28px 24px; }
+  .game_prize_image{ height: 96px; }
+  .game_prize_name{ font-size: 16px; }
+}
+@media (min-width: 900px){
+  .game_vitamins{ grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; max-width: none; }
+  .game_banner_copy{ padding-left: 24px; }
+  .game_banner_clover{ right: 12%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .game_vitamin, .game_bottle, .game_click{ transition: none; }
+  .game_click, .game_vitamin.is_shaking .game_bottle,
+  .game_vitamin.is_open .game_bottle_body, .game_vitamin.is_open .game_bottle_cap,
+  .is_open .game_bottle_glow, .game_winners_track.active{ animation: none; }
+  .game_vitamin.is_open .game_bottle_cap{ opacity: 0; }
+  .game_particles{ display: none; }
+  .game_winners_viewport{ overflow-x: auto; scrollbar-width: thin; }
+}

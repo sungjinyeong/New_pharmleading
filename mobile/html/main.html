@@ -15,12 +15,60 @@
     <script src="../js/popup.js" defer></script>
 </head>
 <body>
+    <!-- 공통 헤더 시작 -->
     <header class="site_header">
         <div class="container header_inner">
             <h1 class="header_logo"><a href="#"><img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE" width="256" height="34"></a></h1>
             <button class="menu_open" type="button"><span class="menu_open_line"></span><span class="sr_only">전체 메뉴 열기</span></button>
         </div>
     </header>
+
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
+                <div class="menu_top">
+                    <a class="menu_logo" href="#"><img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE" width="256" height="34"></a>
+                    <a class="menu_account" href="#">로그인</a>
+                </div>
+                <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                -->
+
+                <!-- 로그인 후 시작 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#"><img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE" width="256" height="34"></a>
+                    <button class="menu_account" type="button">로그아웃</button>
+                </div>
+                <section class="menu_member friend">
+                    <div class="member_heading">
+                        <h2 class="member_grade">Friend <a class="member_badge" href="#">등급</a></h2>
+                        <strong class="member_name">김일상 약사님</strong>
+                    </div>
+                    <div class="member_description">VIP까지 3회 남았습니다.</div>
+                    <dl class="member_benefits">
+                        <div><dt>보유 팜포인트</dt><dd>50,000P</dd></div>
+                        <div><dt>비타민 쿠폰</dt><dd>42장</dd></div>
+                        <div><dt>이벤트 참여</dt><dd>47회</dd></div>
+                    </dl>
+                </section>
+                <!-- 로그인 후 끝 -->
+
+                <nav class="menu_nav">
+                    <ul>
+                        <li><a href="#">팜포인트 모으기</a></li>
+                        <li><a href="#">교환 SHOP</a></li>
+                        <li><a href="#">팜라운지란?</a></li>
+                        <li><a href="#">마이페이지</a></li>
+                    </ul>
+                </nav>
+                <div class="menu_external"><a href="#">데일리팜 바로가기</a></div>
+            </div>
+            <button class="menu_close" type="button"><span class="sr_only">전체 메뉴 닫기</span></button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+
     <nav class="header_nav">
         <div class="container">
             <div class="swiper header_nav_swiper">
@@ -34,6 +82,8 @@
             </div>
         </div>
     </nav>
+    <!-- 공통 헤더 끝 -->
+
     <main class="mobile_main">
         <section class="main_events">
             <div class="container event_pagination">
@@ -44,7 +94,7 @@
             <div class="main_events_track">
                 <div class="event_card event_vitamin">
                     <div class="container">
-                        <a class="event_content" href="#">
+                        <a class="event_content" href="game.html">
                             <div class="event_copy">
                                 <div class="event_label">EVENT 1</div>
                                 <h2 class="event_title">행운의 비타민을<br>골라주세요!</h2>
@@ -84,7 +134,7 @@
                                 <div class="event_label">EVENT 3</div>
                                 <h2 class="event_title">친구 초대하고<br>10,000P 받으세요!</h2>
                             </div>
-                            <div class="event_image"><img src="../images/common/Artboard3.png" alt=""></div>
+                            <div class="event_image"><img src="../../images/common/Artboard3_2.png" alt=""></div>
                         </a>
                         <p class="event_description">친구가 회원가입 후 추천인 아이디에<br>내 아이디를 입력하면 바로 지급!</p>
                     </div>
@@ -421,49 +471,6 @@
         </div>
     </footer>
 
-    <div class="mobile_menu">
-        <div class="mobile_menu_inner">
-            <div class="menu_panel">
-                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
-                <div class="menu_top">
-                    <a class="menu_logo" href="#"><img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE" width="256" height="34"></a>
-                    <a class="menu_account" href="#">로그인</a>
-                </div>
-                <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
-                -->
-
-                <!-- 로그인 후 시작 -->
-                <div class="menu_top">
-                    <a class="menu_logo" href="#"><img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE" width="256" height="34"></a>
-                    <button class="menu_account" type="button">로그아웃</button>
-                </div>
-                <section class="menu_member friend">
-                    <div class="member_heading">
-                        <h2 class="member_grade">Friend <a class="member_badge" href="#">등급</a></h2>
-                        <strong class="member_name">김일상 약사님</strong>
-                    </div>
-                    <div class="member_description">VIP까지 3회 남았습니다.</div>
-                    <dl class="member_benefits">
-                        <div><dt>보유 팜포인트</dt><dd>50,000P</dd></div>
-                        <div><dt>비타민 쿠폰</dt><dd>42장</dd></div>
-                        <div><dt>이벤트 참여</dt><dd>47회</dd></div>
-                    </dl>
-                </section>
-                <!-- 로그인 후 끝 -->
-
-                <nav class="menu_nav">
-                    <ul>
-                        <li><a href="#">팜포인트 모으기</a></li>
-                        <li><a href="#">교환 SHOP</a></li>
-                        <li><a href="#">팜라운지란?</a></li>
-                        <li><a href="#">마이페이지</a></li>
-                    </ul>
-                </nav>
-                <div class="menu_external"><a href="#">데일리팜 바로가기</a></div>
-            </div>
-            <button class="menu_close" type="button"><span class="sr_only">전체 메뉴 닫기</span></button>
-        </div>
-    </div>
     <!-- 팝업: active 추가 시 표시. 정답/오답 응답에 맞춰 해당 팝업만 활성화 -->
     <div class="popup quiz_retry active">
         <div class="result_panel">
