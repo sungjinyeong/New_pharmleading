@@ -1,34 +1,49 @@
 @charset "UTF-8";
 
+/* ==================== 공통 변수 ==================== */
 :root{
   --font_family: "Pretendard Variable", Pretendard, "Malgun Gothic", sans-serif;
-  --color_primary: #1C73E6;
+  --color_primary: var(--color_blue);
   --color_blue: #1C73E6;
   --color_green: #35AA51;
   --color_yellow: #FCBC05;
   --color_red: #FF0040;
-  --color_text: #1A1A1A;
-  --color_muted: #949494;
+  --color_slate: #F8FAFC;
+  --color_gray_100: #F2F2F2;
+  --color_gray_200: #DFDFDF;
+  --color_gray_300: #AFAFAF;
+  --color_gray_400: #949494;
+  --color_gray_900: #1A1A1A;
+  --color_black: #000000;
+  --color_text: var(--color_gray_900);
+  --color_muted: var(--color_gray_400);
   --color_border: #F0F1F3;
   --color_surface: #F5F6F8;
   --color_white: #FFFFFF;
-  --color_event_finished: #AFAFAF;
-  --color_event_finished_bg: #F2F2F2;
-  --color_event_finished_border: #DFDFDF;
+  --color_event_finished: var(--color_gray_300);
+  --color_event_finished_bg: var(--color_gray_100);
+  --color_event_finished_border: var(--color_gray_200);
   --color_blue_light: #DCEBFF;
   --container_width: 1024px;
   --padding: 10px;
-  --page_gutter: calc(var(--padding) * 1.8);
+  --page_gutter: calc(var(--padding) * 3.2);
   --header_height: 57px;
   --header_nav_height: 57px;
-  --menu_width: min(326px, calc(100% - 64px));
+  --menu_width: 360px;
 }
-@media (min-width: 600px){
+
+/* ==================== 화면 너비별 조정: 넓은 구간부터 좁은 구간 순서로 적용 ==================== */
+/* ==================== 768px 이하 ==================== */
+@media screen and (max-width: 768px){
   :root{
     --page_gutter: calc(var(--padding) * 2.4);
-    --menu_width: 360px;
   }
 }
-@media (min-width: 768px){
-  :root{ --page_gutter: calc(var(--padding) * 3.2); }
+
+/* ==================== 600px 이하 ==================== */
+@media screen and (max-width: 600px){
+  :root{
+    --page_gutter: calc(var(--padding) * 1.8);
+    --menu_width: min(326px, calc(100% - 64px));
+  }
 }

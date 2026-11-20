@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* ==================== 공통 페이지네이션 ==================== */
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  font-size: 14px;
+  line-height: 20px;
+}
+.pagination button{
+  display: inline-flex;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  min-height: 36px;
+  color: var(--color_gray_300);
+}
+.pagination .pagination_prev,
+.pagination .pagination_next{
+  flex-basis: 40px;
+  width: 40px;
+  color: var(--color_text);
+}
+.pagination button.active{
+  color: var(--color_text);
+  font-weight: 600;
+}
+.pagination button:disabled{
+  color: var(--color_gray_300);
+  cursor: default;
+}
+.pagination_page:nth-of-type(n+11){display: none;}
+
+/* ==================== 600px 이하: 페이지 번호 5개 ==================== */
+@media screen and (max-width: 600px){
+  .pagination_page:nth-of-type(n+7){
+    display: none;
+  }
+}

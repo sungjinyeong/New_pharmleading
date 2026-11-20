@@ -5,6 +5,9 @@
     quiz_correct_open: '.quiz_correct',
     quiz_gate_open: '.quiz_gate',
     shop_product: '.exchange_popup',
+    game_payment_open: '.game_payment_popup',
+    game_result_open: '.game_result',
+    game_point_open: '.game_point_result',
   };
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest(Object.keys(targets).map((name) => '.' + name).join(', '));

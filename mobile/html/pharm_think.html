@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약사님의 생각은? | 팜라운지 모바일</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/sub_page.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="../js/common.js" defer></script>
+    <script src="../js/pages/sub_page.js" defer></script>
+</head>
+<body>
+    <!-- 공통 헤더 시작 -->
+    <header class="site_header">
+        <div class="container header_inner">
+            <h1 class="header_logo">
+                <a href="main.html">
+                    <img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE">
+                </a>
+            </h1>
+            <button class="menu_open" type="button">
+                <span class="menu_open_line"></span>
+                <span class="sr_only">전체 메뉴 열기</span>
+            </button>
+        </div>
+    </header>
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#">
+                        <img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE">
+                    </a>
+                    <a class="menu_account" href="#">로그인</a>
+                </div>
+                <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                <!-- 로그인 후 시작 -->
+                <!--
+                    <div class="menu_top">
+                        <a class="menu_logo" href="#">
+                            <img src="../images/common/lounge_logo.svg" alt="PHARM LOUNGE">
+                        </a>
+                        <button class="menu_account" type="button">로그아웃</button>
+                    </div>
+                    <section class="menu_member friend">
+                        <div class="member_heading">
+                            <h2 class="member_grade">
+                                Friend
+                                <a class="member_badge" href="#">등급</a>
+                            </h2>
+                            <strong class="member_name">김일상 약사님</strong>
+                        </div>
+                        <div class="member_description">VIP까지 3회 남았습니다.</div>
+                        <dl class="member_benefits">
+                            <div>
+                                <dt>보유 팜포인트</dt>
+                                <dd>50,000P</dd>
+                            </div>
+                            <div>
+                                <dt>비타민 쿠폰</dt>
+                                <dd>42장</dd>
+                            </div>
+                            <div>
+                                <dt>이벤트 참여</dt>
+                                <dd>47회</dd>
+                            </div>
+                        </dl>
+                    </section>
+                -->
+                <!-- 로그인 후 끝 -->
+                <nav class="menu_nav">
+                    <ul>
+                        <li>
+                            <a href="#">팜포인트 모으기</a>
+                        </li>
+                        <li>
+                            <a href="#">교환 SHOP</a>
+                        </li>
+                        <li>
+                            <a href="#">팜라운지란?</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu_external">
+                    <a href="#">데일리팜 바로가기</a>
+                </div>
+            </div>
+            <button class="menu_close" type="button">
+                <span class="sr_only">전체 메뉴 닫기</span>
+            </button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+    <nav class="header_nav">
+        <div class="container">
+            <div class="swiper header_nav_swiper">
+                <!-- 해당 페이지의 메뉴 li에 active 적용 -->
+                <ul class="swiper-wrapper header_nav_list hover_primary">
+                    <li class="swiper-slide active">
+                        <a href="main.html">팜포인트 모으기</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">교환 SHOP</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">팜라운지란?</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 공통 헤더 끝 -->
+    <main class="mobile_main sub_page pharm_think">
+        <section class="layout_content list_panel">
+            <div class="container">
+                <h1 class="list_panel_title">약사님의 생각은?</h1>
+                <!-- PC와 같은 카드 구조. 진행중 항목에 is_highlight 적용. -->
+                <ul class="content_list">
+                    <li class="content_card is_highlight">
+                        <div class="content_card_meta">
+                            <span class="think_status">진행중...</span>
+                            <div class="content_card_date"><time datetime="">2026.08.03</time> ~ <time datetime="">2026.08.09</time></div>
+                        </div>
+                        <h2 class="content_card_title"><a href="#">닥터나우 방지법 실효성은?</a></h2>
+                        <p class="think_description">비대면진료 플랫폼의 의약품 도매상 설립을 금지하고 플랫폼 내 특정 약국 홍보 등 처방전 유인행위를 금지하는 내용의 약사법 개정안을 놓고 약사 직능과 플랫폼 업계가 찬반 갈등 중입니다. 일명 '닥터나우 방지법'을 둘러싼 논쟁인데요. 약사님들은 특정 약국 유도 방지에 대해 어떻게 생각하시나요?</p>
+                    </li>
+                    <li class="content_card">
+                        <div class="content_card_meta">
+                            <span class="think_status">설문종료</span>
+
+                        </div>
+                        <h2 class="content_card_title">INN 도입과 대체조제 활성화</h2>
+                        <p class="think_description">의약품 수급난이 심화되자 INN(국제일반명)이 대안으로 부상하고 있습니다. INN은 의약품 작명법입니다. 즉 타이레놀을 아세트아미노펜으로 명명하자는 것입니다. 상품명이 아닌 국제일반명을 사용하는 방안에 대한 약사님의 생각을 들려주세요.</p>
+                    </li>
+                    <li class="content_card">
+                        <div class="content_card_meta">
+                            <span class="think_status">설문종료</span>
+
+                        </div>
+                        <h2 class="content_card_title">INN 도입과 대체조제 활성화</h2>
+                        <p class="think_description">의약품 수급난이 심화되자 INN(국제일반명)이 대안으로 부상하고 있습니다. INN은 의약품 작명법입니다. 즉 타이레놀을 아세트아미노펜으로 명명하자는 것입니다. 상품명이 아닌 국제일반명을 사용하는 방안에 대한 약사님의 생각을 들려주세요.</p>
+                    </li>
+                </ul>
+                <!-- 현재 페이지에 active 적용. 실제 페이지 이동은 개발에서 연결합니다. -->
+                <nav class="pagination">
+                    <button type="button" class="pagination_prev" disabled>이전</button>
+                    <button type="button" class="pagination_page">1</button>
+                    <button type="button" class="pagination_page active">2</button>
+                    <button type="button" class="pagination_page">3</button>
+                    <button type="button" class="pagination_page">4</button>
+                    <button type="button" class="pagination_page">5</button>
+                    <button type="button" class="pagination_page">6</button>
+                    <button type="button" class="pagination_page">7</button>
+                    <button type="button" class="pagination_page">8</button>
+                    <button type="button" class="pagination_page">9</button>
+                    <button type="button" class="pagination_next">다음</button>
+                </nav>
+            </div>
+        </section>
+    </main>
+    <footer class="site_footer">
+        <div class="container">
+            <div class="footer_heading">
+                <a class="footer_logo" href="#">
+                    <img src="../../images/common/dummy_logo.svg" alt="데일리팜">
+                </a>
+                <details class="footer_family">
+                    <summary>
+                        Family site
+                        <span class="footer_family_arrow"></span>
+                    </summary>
+                    <ul class="footer_family_list">
+                        <li>
+                            <a href="#">데일리팜</a>
+                        </li>
+                        <li>
+                            <a href="#">팜리쿠르트</a>
+                        </li>
+                        <li>
+                            <a href="#">DP부동산</a>
+                        </li>
+                        <li>
+                            <a href="#">팜인사이드</a>
+                        </li>
+                        <li>
+                            <a href="#">약담소</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+            <!-- 정책 및 Family site 링크는 실제 경로로 교체 -->
+            <ul class="footer_links">
+                <li>
+                    <a href="#">회사소개</a>
+                </li>
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li>
+                    <a href="#">법적고지</a>
+                </li>
+                <li>
+                    <a href="#">이메일 무단수집 거부</a>
+                </li>
+            </ul>
+            <address class="footer_info">
+                <p class="footer_address">발행주소 : 서울시 송파구 법원로 128 문정 SK V1 GL 메트로시티 A동 401호</p>
+                <ul class="footer_company">
+                    <li>상호: (주)데일리팜</li>
+                    <li>대표자: 이정석</li>
+                </ul>
+                <ul class="footer_contact">
+                    <li>전화: 02-3473-083</li>
+                    <li>팩스: 02-3474-0169</li>
+                </ul>
+                <p class="footer_email">
+                    mail:
+                    <a href="mailto:dailypharm@dailypharm.com">dailypharm@dailypharm.com</a>
+                </p>
+            </address>
+            <p class="footer_copyright">Copyright © Dailypharm1999-2026, All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

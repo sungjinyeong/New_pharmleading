@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* ==================== 퀴즈 참여율: PC quiz_attendance 구조 ==================== */
+.quiz_page, .pharm_think{background-color: var(--color_white);}
+.quiz_attendance{
+  padding-block: 24px;
+  border-bottom: 10px solid var(--color_surface);
+}
+.quiz_attendance .sidebar_heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.quiz_attendance .sidebar_title{
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.quiz_attendance_count{
+  flex-shrink: 0;
+  color: var(--color_gray_300);
+  font-size: 16px;
+  white-space: nowrap;
+}
+.quiz_attendance_count strong{color: var(--color_primary);}
+.quiz_progress{
+  position: relative;
+  height: 44px;
+  overflow: hidden;
+  border: 1px solid var(--color_primary);
+  border-radius: 11px;
+  color: var(--color_primary);
+}
+.quiz_progress_fill{
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress, 0%);
+  background-color: var(--color_blue_light);
+}
+.quiz_progress_label{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ==================== 공통 목록: PC content_card / quiz_answer 구조 ==================== */
+.list_panel{padding-block: 24px;}
+.list_panel_title{
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.content_list{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.content_card{
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--color_gray_200);
+  border-radius: 10px;
+  color: var(--color_muted);
+}
+.content_card.is_highlight{
+  border-color: var(--color_primary);
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}
+.content_card_meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 20px;
+}
+.content_card_date{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 7px;
+}
+.quiz_today{font-weight: 700;}
+.status_badge{
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+.content_card_title{
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid currentColor;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.content_card.is_highlight .content_card_title{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.quiz_answer{
+  font-size: 16px;
+  line-height: 22px;
+}
+.quiz_answer_text{font-weight: 600;}
+.quiz_answer:has(.quiz_answer_toggle) .quiz_answer_text{display: none;}
+.quiz_answer_toggle{
+  padding: 5px 12px;
+  border-radius: 7px;
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+  font-size: 14px;
+  line-height: 22px;
+}
+.quiz_answer.active .quiz_answer_text{display: inline;}
+.quiz_answer.active .quiz_answer_toggle{margin-left: 10px;}
+.quiz_answer.is_completed .quiz_answer_text{display: block;}
+.quiz_answer.is_completed .quiz_answer_toggle{display: none;}
+
+/* ==================== 약사님의 생각은: PC pharm_think 구조 ==================== */
+.pharm_think .content_card{
+  min-height: 132px;
+  color: var(--color_gray_300);
+}
+.pharm_think .content_card.is_highlight{color: var(--color_primary);}
+.pharm_think .content_card_meta{
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.pharm_think .content_card_title{
+  padding-bottom: 0;
+  margin-bottom: 6px;
+  border-bottom: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.think_status{font-weight: 600;}
+.think_description{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 16px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+/* ==================== 767px 이하: 목록 카드 1열 ==================== */
+@media screen and (max-width: 767px){
+  .content_list{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==================== 600px 이하: 모바일 목록 ==================== */
+@media screen and (max-width: 600px){
+  .quiz_attendance{
+    padding-block: 18px;
+  }
+  .quiz_attendance .sidebar_title,
+  .list_panel_title{
+    font-size: 18px;
+  }
+  .list_panel{
+    padding-block: 18px 22px;
+  }
+  .content_card{
+    padding: 18px;
+  }
+  .content_card_title{
+    font-size: 16px;
+  }
+}
+
+/* ==================== 359px 이하: 좁은 모바일 ==================== */
+@media screen and (max-width: 359px){
+  .quiz_attendance .sidebar_heading{
+    gap: 8px;
+  }
+  .quiz_attendance .sidebar_title{
+    font-size: 16px;
+  }
+  .quiz_attendance_count{
+    font-size: 14px;
+  }
+  .content_card{
+    padding: 14px;
+  }
+  .content_card_meta{
+    gap: 8px;
+    font-size: 13px;
+  }
+}

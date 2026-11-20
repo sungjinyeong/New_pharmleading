@@ -1,24 +1,17 @@
-/* 모바일 전체 메뉴 열기 / 닫기 */
+/* ==================== 전체 메뉴 ==================== */
 (() => {
   const menu = document.querySelector('.mobile_menu');
   const opener = document.querySelector('.menu_open');
   if (!menu || !opener) return;
-  const header = document.querySelector('.site_header');
-  const navigation = document.querySelector('.header_nav');
-  const main = document.querySelector('.mobile_main');
-  const footer = document.querySelector('.site_footer');
+  const background = document.querySelectorAll('.site_header, .header_nav, .mobile_main, .site_footer');
   const closeButton = menu.querySelector('.menu_close');
   menu.inert = !menu.classList.contains('active');
   const setOpen = (open) => {
     menu.inert = !open;
     menu.classList.toggle('active', open);
     document.documentElement.classList.toggle('menu_opened', open);
-    header.inert = open;
-    if (navigation) navigation.inert = open;
-    main.inert = open;
-    if (footer) footer.inert = open;
-    if (open) closeButton.focus();
-    else opener.focus();
+    background.forEach((element) => { element.inert = open; });
+    (open ? closeButton : opener).focus();
   };
   opener.addEventListener('click', () => setOpen(true));
   closeButton.addEventListener('click', () => setOpen(false));
@@ -30,66 +23,61 @@
   });
 })();
 
-/* 공통 내비게이션: 넓으면 한 줄 분배, 넘치면 자유로운 관성 드래그 */
+/* ==================== 내비게이션: 드래그 / 선택한 메뉴 노출 ==================== */
 (() => {
   const element = document.querySelector('.header_nav_swiper');
   if (!element) return;
   const items = [...element.querySelectorAll('.header_nav_list > li')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const duration = () => reducedMotion.matches ? 0 : 350;
   const swiper = typeof Swiper === 'undefined' ? null : new Swiper(element, {
     slidesPerView: 'auto',
-    spaceBetween: 0,
-    speed: duration(),
+    speed: reducedMotion.matches ? 0 : 350,
     freeMode: {
       enabled: true,
-      sticky: false,
       momentum: !reducedMotion.matches,
       momentumBounce: false,
     },
     grabCursor: true,
-    simulateTouch: true,
     mousewheel: { forceToAxis: true, releaseOnEdges: true },
-    watchOverflow: true,
-    preventClicks: true,
-    preventClicksPropagation: true,
     a11y: { enabled: false },
   });
 
-  const reveal = (item, speed = duration()) => {
+  const reveal = (item, speed = reducedMotion.matches ? 0 : 350) => {
     if (!item) return;
     const left = item.offsetLeft;
     const right = left + item.offsetWidth;
-    if (!swiper) {
-      if (left < element.scrollLeft) element.scrollTo({ left, behavior: speed ? 'smooth' : 'instant' });
-      else if (right > element.scrollLeft + element.clientWidth) element.scrollTo({ left: right - element.clientWidth, behavior: speed ? 'smooth' : 'instant' });
-      return;
+    const current = swiper ? -swiper.translate : element.scrollLeft;
+    const width = swiper ? swiper.size : element.clientWidth;
+    let target = current;
+    if (left < current) target = left;
+    else if (right > current + width) target = right - width;
+
+    if (swiper) {
+      swiper.translateTo(Math.max(swiper.maxTranslate(), Math.min(swiper.minTranslate(), -target)), speed);
+    } else if (target !== current) {
+      element.scrollTo({ left: target, behavior: speed ? 'smooth' : 'instant' });
     }
-    const currentLeft = -swiper.translate;
-    let target = currentLeft;
-    if (left < currentLeft) target = left;
-    else if (right > currentLeft + swiper.size) target = right - swiper.size;
-    const translate = Math.max(swiper.maxTranslate(), Math.min(swiper.minTranslate(), -target));
-    swiper.translateTo(translate, speed);
   };
 
-  items.forEach((item) => {
-    const link = item.querySelector('a');
-    link.addEventListener('click', (event) => {
-      // 퍼블리싱용 임시 링크. 실제 페이지 주소 연결 후에는 페이지 이동을 따릅니다.
-      if (link.getAttribute('href') !== '#') return;
-      event.preventDefault();
-      items.forEach((entry) => entry.classList.toggle('active', entry === item));
-      if (swiper) swiper.update();
-      reveal(item);
-    });
-    link.addEventListener('focus', () => reveal(item));
+  element.addEventListener('click', (event) => {
+    const link = event.target.closest('.header_nav_list a');
+    // 실제 주소가 있는 링크는 그대로 이동합니다.
+    if (!link || link.getAttribute('href') !== '#') return;
+    event.preventDefault();
+    const item = link.closest('li');
+    items.forEach((entry) => entry.classList.toggle('active', entry === item));
+    swiper?.update();
+    reveal(item);
   });
-  reveal(items.find((item) => item.classList.contains('active')), 0);
-  if (swiper) swiper.on('resize', () => reveal(items.find((item) => item.classList.contains('active')), 0));
+  element.addEventListener('focusin', (event) => {
+    const link = event.target.closest('.header_nav_list a');
+    if (link) reveal(link.closest('li'));
+  });
+  reveal(element.querySelector('.active'), 0);
+  swiper?.on('resize', () => reveal(element.querySelector('.active'), 0));
 })();
 
-/* Family site: 위로 펼침, 바깥 클릭 / 포커스 이동 / Escape 시 닫기 */
+/* ==================== Family site ==================== */
 (() => {
   const family = document.querySelector('.footer_family');
   if (!family) return;
@@ -105,3 +93,13 @@
     family.querySelector('summary').focus();
   });
 })();
+
+/* ==================== 페이지 번호 선택 ==================== */
+document.querySelectorAll('.pagination').forEach((pagination) => {
+  pagination.addEventListener('click', (event) => {
+    const button = event.target.closest('.pagination_page');
+    if (!button || button.disabled) return;
+    pagination.querySelector('.pagination_page.active')?.classList.remove('active');
+    button.classList.add('active');
+  });
+});
