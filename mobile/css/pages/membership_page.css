@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+/* ==================== 멤버십 배너 ==================== */
+.membership_banner{
+  position: relative;
+  margin-bottom: 10px;
+  background-color: var(--color_text);
+}
+.membership_banner > .container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 180px;
+  padding-block: 28px;
+}
+.membership_banner_copy{
+  position: relative;
+  z-index: 1;
+  width: 60%;
+}
+.membership_banner_description{
+  margin-bottom: 12px;
+  color: var(--color_white);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.membership_banner_title{
+  color: var(--color_white);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+.membership_banner_decoration{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(80%, 356px);
+  opacity: .25;
+  pointer-events: none;
+}
+.membership_banner_crown{
+  position: absolute;
+  right: var(--page_gutter);
+  bottom: -10px;
+  width: clamp(104px, 35vw, 156px);
+  pointer-events: none;
+}
+.membership_banner_decoration img,
+.membership_banner_crown img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==================== 등급과 혜택 ==================== */
+.membership_section{
+  padding-block: 24px;
+  border-bottom: 10px solid var(--color_surface);
+  background-color: var(--color_white);
+}
+.membership_section:last-child{
+  border-bottom: 0;
+}
+.membership_title{
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.grade_table{
+  padding: 0 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--color_gray_200);
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+}
+.grade_head,
+.grade_row{
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+}
+.grade_head{
+  border-bottom: 1px solid var(--color_text);
+}
+.grade_row:not(:last-child){
+  border-bottom: 1px solid var(--color_gray_200);
+}
+.grade_cell{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 49px;
+  padding: 10px 4px;
+  word-break: keep-all;
+}
+.grade_friend{
+  color: var(--color_primary);
+}
+.grade_family{
+  color: var(--color_green);
+}
+.grade_premium{
+  color: var(--color_yellow);
+}
+.grade_vip{
+  color: var(--color_red);
+}
+.membership_notes{
+  display: grid;
+  gap: 5px;
+  color: var(--color_muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75em;
+}
+.membership_notes li{
+  position: relative;
+  padding-left: 10px;
+  overflow-wrap: break-word;
+}
+.membership_notes li::before{
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ==================== 600px 이하: 배너 비율 ==================== */
+@media screen and (max-width: 600px){
+  .membership_banner > .container{
+    min-height: 164px;
+  }
+  .membership_banner_title{
+    font-size: 26px;
+  }
+}
+
+/* ==================== 359px 이하: 배너 글자와 간격 ==================== */
+@media screen and (max-width: 359px){
+  .membership_banner_description{
+    margin-bottom: 8px;
+  }
+  .membership_banner_title{
+    font-size: 22px;
+  }
+}

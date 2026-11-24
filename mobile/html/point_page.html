@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팜포인트 모으기 | 팜라운지 모바일</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/point_page.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="../js/common.js" defer></script>
+</head>
+<body>
+    <!-- 공통 헤더 시작 -->
+    <header class="site_header">
+        <div class="container header_inner">
+            <h1 class="header_logo">
+                <a href="main.html">
+                    <img src="../../images/common/lounge_logo.svg" alt="">
+                </a>
+            </h1>
+            <button class="menu_open" type="button">
+                <span class="menu_open_line"></span>
+                <span class="sr_only">전체 메뉴 열기</span>
+            </button>
+        </div>
+    </header>
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
+                    <div class="menu_top">
+                        <a class="menu_logo" href="#">
+                            <img src="../../images/common/lounge_logo.svg" alt="">
+                        </a>
+                        <a class="menu_account" href="#">로그인</a>
+                    </div>
+                    <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                -->
+                <!-- 로그인 후 시작 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#">
+                        <img src="../../images/common/lounge_logo.svg" alt="">
+                    </a>
+                    <button class="menu_account" type="button">로그아웃</button>
+                </div>
+                <section class="menu_member friend">
+                    <div class="member_heading">
+                        <h2 class="member_grade">
+                            Friend
+                            <a class="member_badge" href="#">등급</a>
+                        </h2>
+                        <strong class="member_name">김일상 약사님</strong>
+                    </div>
+                    <div class="member_description">VIP까지 3회 남았습니다.</div>
+                    <dl class="member_benefits">
+                        <div>
+                            <dt>보유 팜포인트</dt>
+                            <dd>50,000P</dd>
+                        </div>
+                        <div>
+                            <dt>비타민 쿠폰</dt>
+                            <dd>42장</dd>
+                        </div>
+                        <div>
+                            <dt>이벤트 참여</dt>
+                            <dd>47회</dd>
+                        </div>
+                    </dl>
+                </section>
+                <!-- 로그인 후 끝 -->
+                <nav class="menu_nav">
+                    <ul>
+                        <li>
+                            <a href="#">팜포인트 모으기</a>
+                        </li>
+                        <li>
+                            <a href="shop_page.html">교환 SHOP</a>
+                        </li>
+                        <li>
+                            <a href="membership_page.html">팜라운지란?</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu_external">
+                    <a href="#">데일리팜 바로가기</a>
+                </div>
+            </div>
+            <button class="menu_close" type="button">
+                <span class="sr_only">전체 메뉴 닫기</span>
+            </button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+    <nav class="header_nav">
+        <div class="container">
+            <div class="swiper header_nav_swiper">
+                <!-- 해당 페이지의 메뉴 li에 active 적용 -->
+                <ul class="swiper-wrapper header_nav_list hover_primary">
+                    <li class="swiper-slide active">
+                        <a href="#">팜포인트 모으기</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="shop_page.html">교환 SHOP</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="membership_page.html">팜라운지란?</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 공통 헤더 끝 -->
+    <main class="mobile_main point_page">
+        <section class="main_welcome">
+            <div class="container">
+                <!-- active 추가 시 펼침 / 제거 시 접힘 -->
+                <div class="welcome_event">
+                    <h2 class="welcome_heading">
+                        <button class="welcome_toggle" type="button">
+                            <span>
+                                Welcome Back Event
+                                <br>
+                                - 적립포인트 부스터 이벤트 🎉
+                            </span>
+                            <span class="welcome_toggle_icon"></span>
+                        </button>
+                    </h2>
+                    <div class="welcome_content">
+                        <div class="welcome_content_clip">
+                            <div class="welcome_body">
+                                <div class="welcome_title">
+                                    오랜만에 돌아오신
+                                    <br>
+                                    회원님께 드리는선물!
+                                    <br>
+                                    <strong>
+                                        이벤트 3개 참여하면
+                                        <br>
+                                        30,000P가 추가로 적립
+                                    </strong>
+                                    돼요.
+                                </div>
+                                <div class="welcome_rewards">
+                                    <div class="welcome_progress_heading">
+                                        <span>지금까지 적립</span>
+                                        <strong>5,000P</strong>
+                                    </div>
+                                    <!-- 개발 연동: 적립 포인트와 --progress 비율 변경 -->
+                                    <div class="welcome_progress" style="--progress: 33.333%;">
+                                        <span class="welcome_progress_fill"></span>
+                                    </div>
+                                    <ul class="welcome_steps">
+                                        <li class="welcome_step active">
+                                            <span class="welcome_step_label">STEP 01</span>
+                                            <strong class="welcome_step_point">5,000P</strong>
+                                            <div class="welcome_step_description">
+                                                <span class="welcome_star">☆</span>
+                                                이벤트
+                                                <br>
+                                                1회 참여시
+                                            </div>
+                                        </li>
+                                        <li class="welcome_step">
+                                            <span class="welcome_step_label">STEP 02</span>
+                                            <strong class="welcome_step_point">10,000P</strong>
+                                            <div class="welcome_step_description">
+                                                <span class="welcome_star">☆</span>
+                                                이벤트
+                                                <br>
+                                                2회 참여시
+                                            </div>
+                                        </li>
+                                        <li class="welcome_step">
+                                            <span class="welcome_step_label">STEP 03</span>
+                                            <strong class="welcome_step_point">15,000P</strong>
+                                            <div class="welcome_step_description">
+                                                <span class="welcome_star">☆</span>
+                                                이벤트
+                                                <br>
+                                                3회 참여시
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <p class="welcome_note">*이벤트 포인트에 더하여 STEP별 포인트가 추가 지급됩니다</p>
+                                </div>
+                                <a class="welcome_link" href="#">이벤트 자세히보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="point_list">
+            <div class="container">
+                <div class="point_heading">
+                    <h2 class="point_page_title">팜포인트 모으기</h2>
+                    <p class="point_page_description">ⓘ 당첨 상품은 변경될 수 있습니다.</p>
+                </div>
+                <!-- 카드 이미지와 내용은 PC 샘플 기준. 링크와 실제 이벤트 정보는 개발 연동 -->
+                <ul class="point_grid">
+                    <li class="point_card">
+                        <a class="point_card_link" href="#">
+                            <span class="point_badges">
+                                <span class="point_badge">NEW</span>
+                                <span class="point_badge point_badge_star">
+                                    <img class="point_star" src="../../images/icons/star.svg" alt="">
+                                </span>
+                            </span>
+                            <div class="point_image">
+                                <img src="../../images/main/point_product_1.png" alt="">
+                            </div>
+                            <div class="point_info">
+                                <span class="point_category">E-detail</span>
+                                <h3 class="point_title">
+                                    올바른 항히스타민제
+                                    <br>
+                                    선택 가이드
+                                </h3>
+                                <div class="point_description">
+                                    실전 4 Step 복약지도
+                                    <br>
+                                    확인 GO!
+                                </div>
+                                <span class="point_date">~10.19</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="point_card">
+                        <a class="point_card_link" href="#">
+                            <span class="point_badges">
+                                <span class="point_badge">NEW</span>
+                                <span class="point_badge point_badge_star">
+                                    <img class="point_star" src="../../images/icons/star.svg" alt="">
+                                </span>
+                            </span>
+                            <div class="point_image">
+                                <img src="../../images/main/point_product_2.jpg" alt="">
+                            </div>
+                            <div class="point_info">
+                                <span class="point_category">E-detail</span>
+                                <h3 class="point_title">감기엔 탁센</h3>
+                                <div class="point_description">안전한 진통제 탁센</div>
+                                <span class="point_date">~10.19</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="point_card">
+                        <a class="point_card_link" href="#">
+                            <span class="point_badges">
+                                <span class="point_badge">NEW</span>
+                                <span class="point_badge point_badge_star">
+                                    <img class="point_star" src="../../images/icons/star.svg" alt="">
+                                </span>
+                            </span>
+                            <div class="point_image">
+                                <img src="../../images/main/point_product_3.png" alt="">
+                            </div>
+                            <div class="point_info">
+                                <span class="point_category">E-detail</span>
+                                <h3 class="point_title">
+                                    여드름 케어의 새로운 기준,
+                                    <br>
+                                    애크린비타겔
+                                </h3>
+                                <div class="point_description">NEW 약국 여드름 관리템</div>
+                                <span class="point_date">~10.19</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="point_card">
+                        <a class="point_card_link" href="#">
+                            <span class="point_badges">
+                                <span class="point_badge">NEW</span>
+                                <span class="point_badge point_badge_star">
+                                    <img class="point_star" src="../../images/icons/star.svg" alt="">
+                                </span>
+                            </span>
+                            <div class="point_image">
+                                <img src="../../images/main/point_pharmacy.svg" alt="">
+                            </div>
+                            <div class="point_info">
+                                <span class="point_category">팜노트</span>
+                                <h3 class="point_title">
+                                    약국 첫 채용공고 0원
+                                    <br>
+                                    + ‘한번 더’ 무료 연장
+                                </h3>
+                                <div class="point_description">좋아요+의견남기면 쿠폰증정</div>
+                                <span class="point_date">~12.31</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="point_card">
+                        <a class="point_card_link" href="#">
+                            <span class="point_badges">
+                                <span class="point_badge">NEW</span>
+                                <span class="point_badge point_badge_star">
+                                    <img class="point_star" src="../../images/icons/star.svg" alt="">
+                                </span>
+                            </span>
+                            <div class="point_image">
+                                <img src="../../images/main/point_recruit.svg" alt="">
+                            </div>
+                            <div class="point_info">
+                                <span class="point_category">팜리쿠르트</span>
+                                <h3 class="point_title">
+                                    약국 첫 채용공고 0원
+                                    <br>
+                                    + ‘한번 더’ 무료 연장
+                                </h3>
+                                <div class="point_description">좋아요+의견남기면 쿠폰증정</div>
+                                <span class="point_date">~12.31</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="point_shop_link">
+            <div class="container">
+                <a href="shop_page.html">
+                    <span class="point_shop_label">
+                        <span class="point_shop_icon">P</span>
+                        팜포인트 SHOP
+                    </span>
+                    <span class="point_shop_arrow"></span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="site_footer">
+        <div class="container">
+            <div class="footer_heading">
+                <a class="footer_logo" href="#">
+                    <img src="../../images/common/dummy_logo.svg" alt="">
+                </a>
+                <details class="footer_family">
+                    <summary>
+                        Family site
+                        <span class="footer_family_arrow"></span>
+                    </summary>
+                    <ul class="footer_family_list">
+                        <li>
+                            <a href="#">데일리팜</a>
+                        </li>
+                        <li>
+                            <a href="#">팜리쿠르트</a>
+                        </li>
+                        <li>
+                            <a href="#">DP부동산</a>
+                        </li>
+                        <li>
+                            <a href="#">팜인사이드</a>
+                        </li>
+                        <li>
+                            <a href="#">약담소</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+            <!-- 정책 및 Family site 링크는 실제 경로로 교체 -->
+            <ul class="footer_links">
+                <li>
+                    <a href="#">회사소개</a>
+                </li>
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li>
+                    <a href="#">법적고지</a>
+                </li>
+                <li>
+                    <a href="#">이메일 무단수집 거부</a>
+                </li>
+            </ul>
+            <address class="footer_info">
+                <p class="footer_address">발행주소 : 서울시 송파구 법원로 128 문정 SK V1 GL 메트로시티 A동 401호</p>
+                <ul class="footer_company">
+                    <li>상호: (주)데일리팜</li>
+                    <li>대표자: 이정석</li>
+                </ul>
+                <ul class="footer_contact">
+                    <li>전화: 02-3473-083</li>
+                    <li>팩스: 02-3474-0169</li>
+                </ul>
+                <p class="footer_email">
+                    mail:
+                    <a href="mailto:dailypharm@dailypharm.com">dailypharm@dailypharm.com</a>
+                </p>
+            </address>
+            <p class="footer_copyright">Copyright © Dailypharm1999-2026, All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

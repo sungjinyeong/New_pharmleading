@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/* ==================== 교환 SHOP 제목 ==================== */
+.shop_page_heading{padding-block: 22px 12px;background-color: var(--color_white);}
+.shop_page_title{font-size: 20px;font-weight: 600;line-height: 1.4;}
+.shop_page_description{margin-top: 4px;color: var(--color_muted);font-size: 12px;line-height: 1.5;}
+
+/* ==================== 포인트별 상품 ==================== */
+.shop_section{
+  padding-block: 20px 18px;
+  border-bottom: 10px solid var(--color_surface);
+  background-color: var(--color_white);
+}
+.shop_page_heading + .shop_section{padding-top: 0;}
+.shop_page .shop_points{gap: 4px;min-height: 24px;margin-bottom: 8px;}
+.shop_page .shop_point_icon{width: 16px;height: 16px;font-size: 11px;}
+.shop_page .shop_point_amount{font-size: 18px;font-weight: 500;}
+.shop_grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.shop_grid li{min-width: 0;}
+.shop_page .shop_product{
+  gap: 4px;
+  min-height: 148px;
+  padding: 0 0 10px;
+}
+.shop_page .shop_product_image{height: 116px;max-height: none;border-radius: 0;}
+.shop_page .shop_product_image img{max-width: min(100%, 164px);}
+.shop_page .shop_product_name{font-size: 14px;font-weight: 400;line-height: 1.4;}
+
+/* ==================== 700px 이하: 두 열로 정렬 ==================== */
+@media screen and (max-width: 700px){
+  .shop_grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==================== 359px 이하: 상품명 여백 ==================== */
+@media screen and (max-width: 359px){
+  .shop_grid{
+    gap: 10px;
+  }
+  .shop_page .shop_product_name{
+    padding-inline: 6px;
+  }
+}

@@ -15,7 +15,7 @@
 }
 .quiz_attendance .sidebar_title{
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
 }
 .quiz_attendance_count{
@@ -54,7 +54,7 @@
 .list_panel_title{
   margin-bottom: 16px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
 }
 .content_list{
@@ -90,7 +90,7 @@
   align-items: baseline;
   gap: 7px;
 }
-.quiz_today{font-weight: 700;}
+.quiz_today{font-weight: 600;}
 .status_badge{
   flex-shrink: 0;
   padding: 1px 7px;
@@ -111,7 +111,7 @@
 }
 .content_card.is_highlight .content_card_title{
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.3;
 }
 .quiz_answer{
@@ -156,10 +156,348 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   font-size: 16px;
   line-height: 20px;
   overflow-wrap: anywhere;
+}
+
+/* ==================== 설문 상세: PC think_detail 구조 ==================== */
+.pharm_think_detail .layout_content{min-width: 0;}
+.pharm_think_detail .section_box{
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.pharm_think_detail .think_detail{padding-top: 24px;}
+.think_detail_nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color_gray_200);
+  font-size: 14px;
+}
+.think_list_link{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.think_list_link img{
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.think_post_nav{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.think_post_nav button:disabled{color: var(--color_gray_300);}
+.think_post_nav > * + *{
+  position: relative;
+  padding-left: 16px;
+}
+.think_post_nav > * + *::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: var(--color_text);
+  transform: translateY(-50%);
+}
+.think_detail_heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.think_title{
+  font-size: 18px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.think_participants{
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--color_primary);
+  border-radius: 20px;
+  color: var(--color_primary);
+  font-size: 12px;
+}
+.think_period{
+  margin-bottom: 10px;
+  color: var(--color_gray_300);
+  font-size: 14px;
+}
+.think_period time{margin-left: 5px;}
+.think_detail_description{
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 27px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ==================== 투표: 기본 / 선택 / active 결과 상태 ==================== */
+.think_vote_form{margin-bottom: 38px;}
+.think_options{
+  display: grid;
+  gap: 10px;
+  padding-bottom: 38px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--color_gray_200);
+}
+.think_option{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 10px 20px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: var(--color_gray_400);
+  background-color: var(--color_gray_100);
+  cursor: pointer;
+}
+.think_option input, .think_option_code, .think_option_result{
+  position: relative;
+  z-index: 1;
+}
+.think_option_gauge{
+  display: none;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: clamp(0%, var(--vote_rate, 0%), 100%);
+  background-color: var(--color_gray_200);
+  pointer-events: none;
+}
+.think_option input{
+  width: 14px;
+  height: 14px;
+  accent-color: var(--color_primary);
+}
+.think_option.active, .think_option:has(input:checked){
+  border-color: var(--color_primary);
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}
+.think_option:has(input:focus-visible){
+  outline: 2px solid var(--color_primary);
+  outline-offset: 3px;
+}
+.think_option_result{
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 6px;
+  font-size: 14px;
+}
+.think_option_result strong{font-weight: 600;}
+.think_vote_form.active .think_option_result{display: flex;}
+.think_vote_form.active .think_option_gauge{display: block;}
+.think_option.active .think_option_gauge{background-color: var(--color_blue_light);}
+.think_vote_form.active .think_option{
+  border-color: var(--color_gray_200);
+  background-color: var(--color_white);
+}
+.think_vote_form.active .think_option.active{border-color: var(--color_primary);}
+.think_option:has(input:disabled){cursor: default;}
+.think_opinion_box{
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--color_gray_200);
+  border-radius: 11px;
+}
+.think_opinion{
+  display: block;
+  width: 100%;
+  min-height: 83px;
+  padding-bottom: 9px;
+  margin-bottom: 9px;
+  border: 0;
+  border-bottom: 1px solid var(--color_gray_200);
+  background: transparent;
+  font-size: 14px;
+  line-height: 22px;
+  resize: none;
+}
+.think_opinion::placeholder{color: var(--color_gray_300);}
+.think_opinion:focus-visible{outline: none;}
+.think_opinion_meta{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  color: var(--color_gray_300);
+  font-size: 14px;
+}
+.think_opinion_meta small{font-size: 12px;}
+.think_vote_submit{
+  width: 100%;
+  min-height: 37px;
+  border-radius: 7px;
+  color: var(--color_white);
+  background-color: var(--color_primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+.think_vote_submit:disabled{background-color: var(--color_gray_300);}
+
+/* ==================== 의견: is_a 왼쪽 / is_b 오른쪽 / active 강조 ==================== */
+.think_comments{
+  padding: 18px var(--page_gutter) 24px;
+  margin-inline: calc(var(--page_gutter) * -1);
+  border-block: 10px solid var(--color_surface);
+}
+.think_comments_heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.think_comments_title{font-weight: 500;}
+.think_rules_toggle{color: var(--color_gray_300);}
+.think_rules{
+  display: none;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 7px;
+  background-color: var(--color_gray_100);
+  font-size: 13px;
+}
+.think_rules.active{display: block;}
+.think_comment_list{
+  display: grid;
+  gap: 14px;
+}
+.think_comment.is_a{
+  padding-left: 9px;
+  border-left: 6px solid var(--color_gray_200);
+}
+.think_comment.is_b{
+  padding-right: 9px;
+  border-right: 6px solid var(--color_gray_200);
+}
+.think_comment.active{border-color: var(--color_primary);}
+.think_comment.active .think_comment_card{border-color: var(--color_primary);}
+.think_comment_card{
+  padding: 10px 18px;
+  border: 1px solid var(--color_gray_200);
+  border-radius: 11px;
+}
+.think_comment_meta{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 15px;
+  color: var(--color_gray_400);
+  font-size: 14px;
+}
+.think_comment_topic{min-width: 0;}
+.think_comment_choice{
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
+  margin-left: 9px;
+}
+.think_comment_choice::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: currentColor;
+  transform: translateY(-50%);
+}
+.think_comment_actions{
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+}
+.think_comment_actions > span:first-child{margin-right: 10px;}
+.think_comment_actions button + button{
+  position: relative;
+  padding-left: 8px;
+}
+.think_comment_actions button + button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 75%;
+  background-color: currentColor;
+  transform: translateY(-50%);
+}
+.think_comment_text{
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ==================== 의견 0건: 주석 처리된 HTML에서 사용 ==================== */
+.think_comments_empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 180px;
+  padding: 20px;
+  color: var(--color_gray_300);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+.think_empty_icon{
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+.think_empty_icon::before{
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  background-color: var(--color_white);
+  transform: skewY(-45deg);
+}
+.think_empty_icon::after{
+  content: "···";
+  position: absolute;
+  inset: 0;
+  font-size: 20px;
+  line-height: 12px;
+}
+
+/* ==================== 하단 관련 설문 목록 ==================== */
+.pharm_think_detail .think_related{padding-block: 24px;}
+.think_related .content_list{margin-bottom: 0;}
+@media (hover: hover){
+  .think_detail_nav a:hover, .think_comment_actions button:hover, .think_rules_toggle:hover{color: var(--color_primary);}
+  .think_vote_submit:not(:disabled):hover{background-color: color-mix(in srgb, var(--color_primary) 85%, var(--color_black));}
 }
 
 /* ==================== 767px 이하: 목록 카드 1열 ==================== */
@@ -186,6 +524,45 @@
   }
   .content_card_title{
     font-size: 16px;
+  }
+}
+
+/* ==================== 400px 이하: 의견 정보 두 줄 정렬 ==================== */
+@media screen and (max-width: 400px){
+  .think_comment_meta{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .think_comment_topic{
+    display: flex;
+    align-items: center;
+  }
+  .think_comment_code{
+    flex-shrink: 0;
+  }
+  .think_comment_choice{
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .think_comment_actions{
+    margin-left: 0;
+  }
+  .think_comment_actions > span:first-child{
+    margin-right: auto;
+  }
+}
+
+/* ==================== 360px 이하: 의견 본문 / 입력 안내 ==================== */
+@media screen and (max-width: 360px){
+  .think_comment_text{
+    font-size: 14px;
+  }
+  .think_opinion_meta small{
+    font-size: 11px;
   }
 }
 

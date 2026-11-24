@@ -19,6 +19,7 @@ body{
   margin-inline: auto;
 }
 .mobile_main{min-height: calc(100dvh - var(--header_height) - var(--header_nav_height));}
+strong, b{font-weight: 600;}
 button, a{-webkit-tap-highlight-color: transparent;}
 button:focus-visible,
 a:focus-visible{
@@ -116,7 +117,7 @@ a:focus-visible{
   user-select: none;
   -webkit-user-drag: none;
 }
-.header_nav_list > .active a{font-weight: 700;}
+.header_nav_list > .active a{font-weight: 600;}
 .header_nav_list > .active a::before{
   content: "";
   position: absolute;
@@ -277,7 +278,7 @@ html.menu_opened{overflow: hidden;}
   align-items: flex-start;
   gap: calc(var(--padding) * 0.5);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 .member_badge{
@@ -321,7 +322,7 @@ html.menu_opened{overflow: hidden;}
 }
 .member_benefits dd{
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* ==================== 메뉴 목록 ==================== */
@@ -372,7 +373,7 @@ html.menu_opened{overflow: hidden;}
 }
 .section_title{
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section_description{
   color: var(--color_muted);

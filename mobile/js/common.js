@@ -103,3 +103,10 @@ document.querySelectorAll('.pagination').forEach((pagination) => {
     button.classList.add('active');
   });
 });
+
+/* ==================== 웰컴 이벤트 접기 / 펼치기 ==================== */
+document.querySelectorAll('.welcome_toggle').forEach((button) => {
+  button.addEventListener('click', () => {
+    button.closest('.welcome_event').classList.toggle('active');
+  });
+});

@@ -22,13 +22,6 @@
   winners.after(copy);
 })();
 
-/* 웰컴 이벤트 접기 / 펼치기 */
-document.querySelectorAll('.welcome_toggle').forEach((button) => {
-  button.addEventListener('click', () => {
-    button.closest('.welcome_event').classList.toggle('active');
-  });
-});
-
 /* 퀴즈 / 설문: 답변 선택 후 참여 버튼 활성화 (참여 처리는 개발 연동) */
 document.querySelectorAll('.participation_card').forEach((card) => {
   const button = card.querySelector('.participation_button');

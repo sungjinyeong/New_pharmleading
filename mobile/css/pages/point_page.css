@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* ==================== 팜포인트 모으기 ==================== */
+.point_page .main_welcome{
+  margin-block: 0 10px;
+  padding-block: 14px;
+}
+.point_page .welcome_toggle{font-size: 16px;font-weight: 400;}
+.point_list{
+  padding-block: 20px 32px;
+  margin-bottom: 10px;
+  background-color: var(--color_white);
+}
+.point_heading{margin-bottom: 14px;}
+.point_page_title{font-size: 20px;font-weight: 600;line-height: 1.4;}
+.point_page_description{margin-top: 4px;color: var(--color_muted);font-size: 12px;line-height: 1.5;}
+.point_page .point_grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: calc(var(--padding) * 1.4);
+  padding: 0;
+  list-style: none;
+}
+.point_page .point_card_link{
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: calc(var(--padding) * 1);
+  height: 140px;
+  min-height: 0;
+  overflow: hidden;
+  padding: calc(var(--padding) * 1) calc(var(--padding) * 1.8);
+  transition: .15s;
+}
+.point_page .point_image{height: 100px;}
+
+/* ==================== 359px 이하: 좁은 화면 간격 ==================== */
+@media screen and (max-width: 359px){
+  .point_page .point_card_link{
+    gap: 10px;
+    padding-inline: 12px;
+  }
+}

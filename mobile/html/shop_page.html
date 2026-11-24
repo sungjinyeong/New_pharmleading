@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팜포인트 교환 SHOP | 팜라운지 모바일</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/shop_page.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="../js/common.js" defer></script>
+    <script src="../js/popup.js" defer></script>
+</head>
+<body>
+    <!-- 공통 헤더 시작 -->
+    <header class="site_header">
+        <div class="container header_inner">
+            <h1 class="header_logo">
+                <a href="main.html">
+                    <img src="../../images/common/lounge_logo.svg" alt="">
+                </a>
+            </h1>
+            <button class="menu_open" type="button">
+                <span class="menu_open_line"></span>
+                <span class="sr_only">전체 메뉴 열기</span>
+            </button>
+        </div>
+    </header>
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
+                    <div class="menu_top">
+                        <a class="menu_logo" href="#">
+                            <img src="../../images/common/lounge_logo.svg" alt="">
+                        </a>
+                        <a class="menu_account" href="#">로그인</a>
+                    </div>
+                    <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                -->
+                <!-- 로그인 후 시작 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#">
+                        <img src="../../images/common/lounge_logo.svg" alt="">
+                    </a>
+                    <button class="menu_account" type="button">로그아웃</button>
+                </div>
+                <section class="menu_member friend">
+                    <div class="member_heading">
+                        <h2 class="member_grade">
+                            Friend
+                            <a class="member_badge" href="#">등급</a>
+                        </h2>
+                        <strong class="member_name">김일상 약사님</strong>
+                    </div>
+                    <div class="member_description">VIP까지 3회 남았습니다.</div>
+                    <dl class="member_benefits">
+                        <div>
+                            <dt>보유 팜포인트</dt>
+                            <dd>50,000P</dd>
+                        </div>
+                        <div>
+                            <dt>비타민 쿠폰</dt>
+                            <dd>42장</dd>
+                        </div>
+                        <div>
+                            <dt>이벤트 참여</dt>
+                            <dd>47회</dd>
+                        </div>
+                    </dl>
+                </section>
+                <!-- 로그인 후 끝 -->
+                <nav class="menu_nav">
+                    <ul>
+                        <li>
+                            <a href="point_page.html">팜포인트 모으기</a>
+                        </li>
+                        <li>
+                            <a href="#">교환 SHOP</a>
+                        </li>
+                        <li>
+                            <a href="membership_page.html">팜라운지란?</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu_external">
+                    <a href="#">데일리팜 바로가기</a>
+                </div>
+            </div>
+            <button class="menu_close" type="button">
+                <span class="sr_only">전체 메뉴 닫기</span>
+            </button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+    <nav class="header_nav">
+        <div class="container">
+            <div class="swiper header_nav_swiper">
+                <!-- 해당 페이지의 메뉴 li에 active 적용 -->
+                <ul class="swiper-wrapper header_nav_list hover_primary">
+                    <li class="swiper-slide">
+                        <a href="point_page.html">팜포인트 모으기</a>
+                    </li>
+                    <li class="swiper-slide active">
+                        <a href="shop_page.html">교환 SHOP</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="membership_page.html">팜라운지란?</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 공통 헤더 끝 -->
+    <main class="mobile_main shop_page">
+        <div class="shop_page_heading">
+            <div class="container">
+                <h2 class="shop_page_title">팜포인트 교환 SHOP</h2>
+                <p class="shop_page_description">ⓘ 매일 참여하세요! 이벤트 1개당 행운의 비타민 쿠폰 1장씩 지급 (*일반의약품 제외)</p>
+            </div>
+        </div>
+        <section class="shop_section">
+            <div class="container">
+                <h3 class="shop_points">
+                    <span class="shop_point_icon">P</span>
+                    <strong class="shop_point_amount">50,000</strong>
+                </h3>
+                <ul class="shop_grid">
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_cu_5000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">CU 상품권 5천원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_seven_eleven_5000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">세븐일레븐 5천원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_naverpay_5000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">네이버페이 5천원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_oliveyoung_5000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">올리브영 5천원</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="shop_section">
+            <div class="container">
+                <h3 class="shop_points">
+                    <span class="shop_point_icon">P</span>
+                    <strong class="shop_point_amount">100,000</strong>
+                </h3>
+                <ul class="shop_grid">
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_cu_10000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">CU 상품권 1만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_seven_eleven_10000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">세븐일레븐 1만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_naverpay_10000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">네이버페이 1만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_oliveyoung_10000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">올리브영 1만원</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="shop_section">
+            <div class="container">
+                <h3 class="shop_points">
+                    <span class="shop_point_icon">P</span>
+                    <strong class="shop_point_amount">200,000</strong>
+                </h3>
+                <ul class="shop_grid">
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_cu_20000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">CU 상품권 2만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_paris_baguette_20000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">파리바게트 2만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_naverpay_20000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">네이버페이 2만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_tous_les_jours_20000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">뚜레쥬르 2만원</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="shop_section">
+            <div class="container">
+                <h3 class="shop_points">
+                    <span class="shop_point_icon">P</span>
+                    <strong class="shop_point_amount">300,000</strong>
+                </h3>
+                <ul class="shop_grid">
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_coupang_30000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">쿠팡 캐시 교환권 3만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_shinsegae_30000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">신세계 상품권 3만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_spc_30000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">SPC 상품권 3만원</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="shop_product" type="button">
+                            <span class="shop_product_image">
+                                <img src="../../images/main/shop_baskin_robbins_30000.png" alt="" loading="lazy">
+                            </span>
+                            <span class="shop_product_name">베스킨라빈스 상품권 3만원</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="point_shop_link">
+            <div class="container">
+                <a href="point_page.html">
+                    <span>⭐ 팜포인트 모으기</span>
+                    <span class="point_shop_arrow"></span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="site_footer">
+        <div class="container">
+            <div class="footer_heading">
+                <a class="footer_logo" href="#">
+                    <img src="../../images/common/dummy_logo.svg" alt="">
+                </a>
+                <details class="footer_family">
+                    <summary>
+                        Family site
+                        <span class="footer_family_arrow"></span>
+                    </summary>
+                    <ul class="footer_family_list">
+                        <li>
+                            <a href="#">데일리팜</a>
+                        </li>
+                        <li>
+                            <a href="#">팜리쿠르트</a>
+                        </li>
+                        <li>
+                            <a href="#">DP부동산</a>
+                        </li>
+                        <li>
+                            <a href="#">팜인사이드</a>
+                        </li>
+                        <li>
+                            <a href="#">약담소</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+            <!-- 정책 및 Family site 링크는 실제 경로로 교체 -->
+            <ul class="footer_links">
+                <li>
+                    <a href="#">회사소개</a>
+                </li>
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li>
+                    <a href="#">법적고지</a>
+                </li>
+                <li>
+                    <a href="#">이메일 무단수집 거부</a>
+                </li>
+            </ul>
+            <address class="footer_info">
+                <p class="footer_address">발행주소 : 서울시 송파구 법원로 128 문정 SK V1 GL 메트로시티 A동 401호</p>
+                <ul class="footer_company">
+                    <li>상호: (주)데일리팜</li>
+                    <li>대표자: 이정석</li>
+                </ul>
+                <ul class="footer_contact">
+                    <li>전화: 02-3473-083</li>
+                    <li>팩스: 02-3474-0169</li>
+                </ul>
+                <p class="footer_email">
+                    mail:
+                    <a href="mailto:dailypharm@dailypharm.com">dailypharm@dailypharm.com</a>
+                </p>
+            </address>
+            <p class="footer_copyright">Copyright © Dailypharm1999-2026, All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- 공통 교환 팝업 -->
+    <div class="popup exchange_popup">
+        <div class="popup_panel">
+            <div class="popup_header">
+                <h2 class="popup_title">잠깐만요, 약사님!</h2>
+                <button class="popup_close" type="button">
+                    닫기
+                    <span class="popup_close_icon"></span>
+                </button>
+            </div>
+            <div class="popup_body">
+                <p class="popup_description">
+                    선물 받으실 휴대전화 번호를 확인해 주세요.
+                    <br>
+                    교환 상품은 입력하신 번호로 당일 발송됩니다.
+                </p>
+                <form class="exchange_form">
+                    <label class="exchange_phone_label">
+                        <span class="exchange_field_title">휴대전화 번호</span>
+                        <input class="exchange_phone" type="tel" name="phone" inputmode="numeric" autocomplete="tel-national" placeholder="01012345678" pattern="01[016789][0-9]{7,8}" maxlength="11" required>
+                    </label>
+                    <div class="exchange_notice">
+                        <strong>입력 전 꼭 확인해 주세요</strong>
+                        <span>번호를 잘못 입력하면 재발송이 불가합니다.</span>
+                    </div>
+                    <button class="exchange_submit" type="submit">
+                        기프티콘 교환
+                        <span class="exchange_submit_arrow"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

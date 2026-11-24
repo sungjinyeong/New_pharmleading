@@ -59,7 +59,7 @@
 }
 .event_title{
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.8px;
   word-break: keep-all;
@@ -103,7 +103,7 @@
 .event_winners_label{
   flex-shrink: 0;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .event_winners_viewport{
   flex: 1;
@@ -141,158 +141,6 @@
   }
 }
 
-/* ==================== 웰컴 이벤트: active로 접기 / 펼치기 ==================== */
-.main_welcome{
-  width: 100%;
-  margin-block: calc(var(--padding) * 1.5);
-  padding-block: calc(var(--padding) * 2.4);
-  background-color: var(--color_blue_light);
-}
-.welcome_toggle{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--padding) * 1);
-  width: 100%;
-  min-height: 40px;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-.welcome_toggle_icon{
-  position: relative;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-}
-.welcome_toggle_icon::before,
-.welcome_toggle_icon::after{
-  content: "";
-  position: absolute;
-  top: 9px;
-  width: 10px;
-  height: 1px;
-  background-color: currentColor;
-  transition: width 0.3s ease, transform 0.3s ease;
-}
-.welcome_toggle_icon::before{
-  left: 0;
-  transform: translateX(2px) rotate(45deg);
-}
-.welcome_toggle_icon::after{
-  right: 0;
-  transform: translateX(-1px) rotate(-45deg);
-}
-.welcome_event.active .welcome_toggle_icon::before, .welcome_event.active .welcome_toggle_icon::after{width: 20px;}
-.welcome_event.active .welcome_toggle_icon::before{transform: rotate(45deg);}
-.welcome_event.active .welcome_toggle_icon::after{transform: rotate(-45deg);}
-.welcome_content{
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  visibility: hidden;
-  transition: grid-template-rows 0.3s ease, opacity 0.3s ease, visibility 0.3s;
-}
-.welcome_event.active .welcome_content{
-  grid-template-rows: 1fr;
-  opacity: 1;
-  visibility: visible;
-}
-.welcome_content_clip{
-  min-height: 0;
-  overflow: hidden;
-}
-.welcome_body{
-  display: grid;
-  gap: calc(var(--padding) * 2.4);
-  padding-top: calc(var(--padding) * 1.2);
-  grid-template-columns: 1fr 1.2fr;
-  align-items: center;
-}
-.welcome_title{
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.6px;
-}
-.welcome_title strong{color: var(--color_primary);}
-.welcome_rewards{min-width: 0;}
-.welcome_progress_heading{
-  display: flex;
-  justify-content: space-between;
-  gap: calc(var(--padding) * 1);
-  margin-bottom: calc(var(--padding) * 0.5);
-  font-size: 12px;
-}
-.welcome_progress{
-  height: 10px;
-  overflow: hidden;
-  border: 1px solid var(--color_primary);
-  border-radius: 10px;
-  background-color: var(--color_white);
-}
-.welcome_progress_fill{
-  display: block;
-  width: clamp(0%, var(--progress, 0%), 100%);
-  height: 100%;
-  background-color: var(--color_primary);
-}
-.welcome_steps{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: calc(var(--padding) * 1);
-  margin-top: calc(var(--padding) * 1.2);
-}
-.welcome_step{
-  container-type: inline-size;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: calc(var(--padding) * 1.4);
-  padding: calc(var(--padding) * 1.6) calc(var(--padding) * 0.4);
-  border: 1px solid var(--color_gray_200);
-  border-radius: 10px;
-  background-color: var(--color_white);
-  color: var(--color_gray_200);
-  text-align: center;
-}
-.welcome_step.active{
-  border-color: var(--color_primary);
-  color: var(--color_text);
-}
-.welcome_step_label{font-size: clamp(10px, 10cqi, 12px);}
-.welcome_step_point{
-  font-size: clamp(10px, 16cqi, 14px);
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  white-space: nowrap;
-}
-.welcome_step_description{
-  font-size: clamp(10px, 10cqi, 12px);
-  line-height: 1.3;
-}
-.welcome_star{color: var(--color_yellow);}
-.welcome_note{
-  margin-top: calc(var(--padding) * 1);
-  font-size: 12px;
-  text-align: center;
-  word-break: keep-all;
-}
-.welcome_link{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 46px;
-  padding: calc(var(--padding) * 1);
-  border-radius: 5px;
-  background-color: var(--color_primary);
-  color: var(--color_white);
-  font-size: 16px;
-  font-weight: 700;
-  grid-column: 1 / -1;
-}
-
 /* ==================== 팜포인트 모으기: 화면 너비별로 1 ~ 3열 배치 ==================== */
 .main_points{
   width: 100%;
@@ -305,98 +153,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: calc(var(--padding) * 1.2);
 }
-.point_card{min-width: 0;}
-.point_card_link{
-  position: relative;
-  display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  align-items: center;
-  gap: calc(var(--padding) * 1);
-  height: 100%;
-  min-height: 156px;
-  padding: calc(var(--padding) * 3.2) calc(var(--padding) * 1.2) calc(var(--padding) * 1.2);
-  border: 1px solid var(--color_gray_200);
-  border-radius: 10px;
-  background-color: var(--color_white);
-}
-.point_badges{
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  display: flex;
-  gap: calc(var(--padding) * 0.2);
-}
-.point_badge{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 22px;
-  padding-inline: calc(var(--padding) * 0.8);
-  border-radius: 6px;
-  background-color: var(--color_text);
-  color: var(--color_white);
-  font-size: 12px;
-  font-weight: 700;
-}
-.point_star{
-  display: block;
-  width: 14px;
-  height: 14px;
-}
-.point_image{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-}
-.point_image img{
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-.point_info{
-  min-width: 0;
-  text-align: center;
-}
-.point_category{
-  display: block;
-  margin-bottom: calc(var(--padding) * 0.5);
-  font-size: 12px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.point_title{
-  min-height: 2.7em;
-  margin-bottom: calc(var(--padding) * 0.6);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.35;
-}
-.point_description{
-  min-height: 2.6em;
-  color: var(--color_muted);
-  font-size: 12px;
-  line-height: 1.3;
-}
-.point_title,
-.point_description{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-}
-.point_date{
-  display: block;
-  color: var(--color_muted);
-  font-size: 12px;
-  text-align: right;
-}
-
 /* ==================== OX퀴즈 / 설문: 카드당 약 320px을 확보할 수 있는 700px부터 2열 ==================== */
 .participation_grid{
   display: grid;
@@ -422,7 +178,7 @@
 .participation_title{
   color: var(--color_primary);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   word-break: keep-all;
 }
@@ -452,7 +208,7 @@
 .participation_subject{
   margin-bottom: calc(var(--padding) * 0.8);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
 }
 .participation_description{
@@ -611,35 +367,6 @@
   gap: calc(var(--padding) * 1.6);
 }
 .shop_row{min-width: 0;}
-.shop_points{
-  display: flex;
-  align-items: center;
-  gap: calc(var(--padding) * 0.4);
-  margin-bottom: calc(var(--padding) * 0.4);
-  min-height: 22px;
-  line-height: 1;
-}
-.shop_point_icon{
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: var(--color_white);
-  background-color: var(--color_gray_300);
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 1;
-  transform: translateY(-1px);
-}
-.shop_point_amount{
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1;
-}
 .shop_swiper{
   min-width: 0;
   margin-right: calc(-1 * var(--page_gutter));
@@ -658,51 +385,6 @@
   width: clamp(160px, 40vw, 200px);
   height: auto;
 }
-.shop_product{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: calc(var(--padding) * 1.2);
-  width: 100%;
-  min-height: 126px;
-  height: 100%;
-  padding: calc(var(--padding) * 1.4) 0 calc(var(--padding) * 1);
-  border: 1px solid var(--color_gray_200);
-  border-radius: 10px;
-  background-color: var(--color_white);
-  text-align: center;
-  user-select: none;
-}
-.shop_product_image{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
-  height: 100px;
-  max-height: 100px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.shop_product_image img{
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  -webkit-user-drag: none;
-}
-.shop_product_name{
-  padding-inline: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.35;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-}
-.shop_product:focus-visible{outline-offset: -3px;}
-
 /* ==================== 라이브러리 로드 전에도 상품 목록은 기본 가로 스크롤 제공 ==================== */
 .shop_swiper:not(.swiper-initialized){
   overflow-x: auto;
@@ -775,23 +457,6 @@
   }
 }
 
-/* ==================== 768px 이하 ==================== */
-@media screen and (max-width: 768px){
-  .main_welcome{
-    padding-block: calc(var(--padding) * 1.5);
-  }
-  .welcome_body{
-    grid-template-columns: none;
-    align-items: normal;
-    gap: calc(var(--padding) * 2);
-  }
-  .welcome_title{
-    font-size: 20px;
-  }
-  .welcome_link{
-    grid-column: auto;
-  }
-}
 
 /* ==================== 700px 이하 ==================== */
 @media screen and (max-width: 700px){
@@ -831,16 +496,6 @@
 
 /* ==================== 359px 이하 ==================== */
 @media screen and (max-width: 359px){
-  .welcome_title{
-    font-size: 18px;
-  }
-  .welcome_steps{
-    gap: calc(var(--padding) * 0.6);
-  }
-  .welcome_step{
-    gap: calc(var(--padding) * 1.2);
-    padding-inline: calc(var(--padding) * 0.2);
-  }
   .participation_subject,
   .participation_description,
   .participation_choice,

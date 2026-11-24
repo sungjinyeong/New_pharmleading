@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팜라운지란? | 팜라운지 모바일</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/membership_page.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="../js/common.js" defer></script>
+</head>
+<body>
+    <!-- 공통 헤더 시작 -->
+    <header class="site_header">
+        <div class="container header_inner">
+            <h1 class="header_logo">
+                <a href="main.html">
+                    <img src="../../images/common/lounge_logo.svg" alt="">
+                </a>
+            </h1>
+            <button class="menu_open" type="button">
+                <span class="menu_open_line"></span>
+                <span class="sr_only">전체 메뉴 열기</span>
+            </button>
+        </div>
+    </header>
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
+                    <div class="menu_top">
+                        <a class="menu_logo" href="#">
+                            <img src="../../images/common/lounge_logo.svg" alt="">
+                        </a>
+                        <a class="menu_account" href="#">로그인</a>
+                    </div>
+                    <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                -->
+                <!-- 로그인 후 시작 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#">
+                        <img src="../../images/common/lounge_logo.svg" alt="">
+                    </a>
+                    <button class="menu_account" type="button">로그아웃</button>
+                </div>
+                <section class="menu_member friend">
+                    <div class="member_heading">
+                        <h2 class="member_grade">
+                            Friend
+                            <a class="member_badge" href="#">등급</a>
+                        </h2>
+                        <strong class="member_name">김일상 약사님</strong>
+                    </div>
+                    <div class="member_description">VIP까지 3회 남았습니다.</div>
+                    <dl class="member_benefits">
+                        <div>
+                            <dt>보유 팜포인트</dt>
+                            <dd>50,000P</dd>
+                        </div>
+                        <div>
+                            <dt>비타민 쿠폰</dt>
+                            <dd>42장</dd>
+                        </div>
+                        <div>
+                            <dt>이벤트 참여</dt>
+                            <dd>47회</dd>
+                        </div>
+                    </dl>
+                </section>
+                <!-- 로그인 후 끝 -->
+                <nav class="menu_nav">
+                    <ul>
+                        <li>
+                            <a href="point_page.html">팜포인트 모으기</a>
+                        </li>
+                        <li>
+                            <a href="#">교환 SHOP</a>
+                        </li>
+                        <li>
+                            <a href="membership_page.html">팜라운지란?</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu_external">
+                    <a href="#">데일리팜 바로가기</a>
+                </div>
+            </div>
+            <button class="menu_close" type="button">
+                <span class="sr_only">전체 메뉴 닫기</span>
+            </button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+    <nav class="header_nav">
+        <div class="container">
+            <div class="swiper header_nav_swiper">
+                <!-- 해당 페이지의 메뉴 li에 active 적용 -->
+                <ul class="swiper-wrapper header_nav_list hover_primary">
+                    <li class="swiper-slide">
+                        <a href="point_page.html">팜포인트 모으기</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="shop_page.html">교환 SHOP</a>
+                    </li>
+                    <li class="swiper-slide active">
+                        <a href="membership_page.html">팜라운지란?</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 공통 헤더 끝 -->
+    <main class="mobile_main membership_page">
+        <section class="membership_banner">
+            <div class="container">
+                <div class="membership_banner_decoration">
+                    <img src="../../images/main/game_banner_2.png" alt="">
+                </div>
+                <div class="membership_banner_copy">
+                    <p class="membership_banner_description">참여할수록 더 많은 혜택을 받는</p>
+                    <h2 class="membership_banner_title">
+                        약사 전용
+                        <br>
+                        멤버십 라운지
+                    </h2>
+                </div>
+                <div class="membership_banner_crown">
+                    <img src="../../images/main/game_banner_1.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="membership_section">
+            <div class="container">
+                <h2 class="membership_title">회원 등급 및 혜택 안내</h2>
+                <div class="grade_table">
+                    <div class="grade_head">
+                        <div class="grade_cell">등급</div>
+                        <div class="grade_cell">이벤트 참여 횟수</div>
+                        <div class="grade_cell">포인트 가산</div>
+                    </div>
+                    <div class="grade_row">
+                        <div class="grade_cell">
+                            <span class="grade_friend">FRIEND</span>
+                        </div>
+                        <div class="grade_cell">약사인증 후 첫 방문</div>
+                        <div class="grade_cell">-</div>
+                    </div>
+                    <div class="grade_row">
+                        <div class="grade_cell">
+                            <span class="grade_family">FAMILY</span>
+                        </div>
+                        <div class="grade_cell">★10개</div>
+                        <div class="grade_cell">기본 +10%</div>
+                    </div>
+                    <div class="grade_row">
+                        <div class="grade_cell">
+                            <span class="grade_premium">PREMIUM</span>
+                        </div>
+                        <div class="grade_cell">★30개</div>
+                        <div class="grade_cell">기본 +20%</div>
+                    </div>
+                    <div class="grade_row">
+                        <div class="grade_cell">
+                            <span class="grade_vip">VIP</span>
+                        </div>
+                        <div class="grade_cell">★50개</div>
+                        <div class="grade_cell">기본 +30%</div>
+                    </div>
+                </div>
+                <ul class="membership_notes">
+                    <li>★가 표시된 이벤트에 참여하여 적립한 횟수만 등급 승급 기준에 반영됩니다.</li>
+                    <li>팜라운지 등급별 가산 포인트는 제품 이벤트에 한해 적용되며, 친구 추천·약사 퀴즈 등 일부 이벤트에는 적용되지 않습니다.</li>
+                    <li>VIP 회원은 최초 승급 시 특별 혜택 쿠폰 1매를 지급하며, VIP 자격을 1년간 유지한 경우 1년 경과 시마다 특별 혜택 쿠폰 1매를 추가 지급합니다.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="membership_section">
+            <div class="container">
+                <h2 class="membership_title">팜포인트란?</h2>
+                <ul class="membership_notes">
+                    <li>포인트 10,000점 = 1,000원의 가치와 같습니다.</li>
+                    <li>행운의 비타민 이벤트, 기프티콘 상품 교환, 팜리쿠르트, 팜아카데미에서 사용 가능합니다.</li>
+                    <li>유효기간은 1년이며, 기간 내 미사용 시 소멸됩니다.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="membership_section">
+            <div class="container">
+                <h2 class="membership_title">행운의 비타민 이벤트란?</h2>
+                <ul class="membership_notes">
+                    <li>팜포인트 모으기에서 이벤트 참여 1개당 행운의 비타민 참여 쿠폰이 1장씩 매일 지급됩니다.</li>
+                    <li>참여 횟수는 1일 무제한입니다.</li>
+                    <li>쿠폰이 아닌 포인트 사용 시, 참여 1회당 3,000포인트가 차감됩니다.</li>
+                    <li>유효기간은 1년이며, 기간 내 미사용 시 소멸됩니다.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="site_footer">
+        <div class="container">
+            <div class="footer_heading">
+                <a class="footer_logo" href="#">
+                    <img src="../../images/common/dummy_logo.svg" alt="">
+                </a>
+                <details class="footer_family">
+                    <summary>
+                        Family site
+                        <span class="footer_family_arrow"></span>
+                    </summary>
+                    <ul class="footer_family_list">
+                        <li>
+                            <a href="#">데일리팜</a>
+                        </li>
+                        <li>
+                            <a href="#">팜리쿠르트</a>
+                        </li>
+                        <li>
+                            <a href="#">DP부동산</a>
+                        </li>
+                        <li>
+                            <a href="#">팜인사이드</a>
+                        </li>
+                        <li>
+                            <a href="#">약담소</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+            <!-- 정책 및 Family site 링크는 실제 경로로 교체 -->
+            <ul class="footer_links">
+                <li>
+                    <a href="#">회사소개</a>
+                </li>
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li>
+                    <a href="#">법적고지</a>
+                </li>
+                <li>
+                    <a href="#">이메일 무단수집 거부</a>
+                </li>
+            </ul>
+            <address class="footer_info">
+                <p class="footer_address">발행주소 : 서울시 송파구 법원로 128 문정 SK V1 GL 메트로시티 A동 401호</p>
+                <ul class="footer_company">
+                    <li>상호: (주)데일리팜</li>
+                    <li>대표자: 이정석</li>
+                </ul>
+                <ul class="footer_contact">
+                    <li>전화: 02-3473-083</li>
+                    <li>팩스: 02-3474-0169</li>
+                </ul>
+                <p class="footer_email">
+                    mail:
+                    <a href="mailto:dailypharm@dailypharm.com">dailypharm@dailypharm.com</a>
+                </p>
+            </address>
+            <p class="footer_copyright">Copyright © Dailypharm1999-2026, All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
