@@ -433,3 +433,72 @@
   border-right: 1px solid currentColor;
   transform: rotate(45deg);
 }
+
+/* ==================== 공통 목록 필터 / 검정 버튼 ==================== */
+.button_black,
+.list_filter_toggle{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--color_white);
+  background-color: var(--color_black);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.list_filter{
+  position: relative;
+  flex-shrink: 0;
+  min-width: 108px;
+}
+.list_filter_toggle{
+  justify-content: space-between;
+  width: 100%;
+}
+.list_filter_toggle::after{
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.list_filter.active .list_filter_toggle::after{
+  transform: translateY(2px) rotate(225deg);
+}
+.list_filter_options{
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  padding-block: 4px;
+  border: 1px solid var(--color_gray_200);
+  border-radius: 8px;
+  background-color: var(--color_white);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color_text) 8%, transparent);
+}
+.list_filter.active .list_filter_options{
+  display: block;
+}
+.list_filter_options button{
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  color: var(--color_text);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+.list_filter_options button.active,
+.list_filter_options button:hover{
+  color: var(--color_primary);
+  background-color: var(--color_blue_light);
+}

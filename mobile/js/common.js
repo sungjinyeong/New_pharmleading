@@ -110,3 +110,30 @@ document.querySelectorAll('.welcome_toggle').forEach((button) => {
     button.closest('.welcome_event').classList.toggle('active');
   });
 });
+
+/* ==================== 목록 필터 선택 표시: 실제 조회는 개발 연동 ==================== */
+document.addEventListener('click', (event) => {
+  const filter = event.target.closest('.list_filter');
+  const toggle = event.target.closest('.list_filter_toggle');
+  document.querySelectorAll('.list_filter.active').forEach((item) => {
+    if (item !== filter) item.classList.remove('active');
+  });
+  if (toggle) {
+    filter.classList.toggle('active');
+    return;
+  }
+  const option = event.target.closest('.list_filter_options button');
+  if (option) {
+    filter.querySelector('.list_filter_toggle').textContent = option.textContent;
+    filter.querySelector('.list_filter_options .active')?.classList.remove('active');
+    option.classList.add('active');
+    filter.classList.remove('active');
+  }
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  document.querySelectorAll('.list_filter.active').forEach((filter) => {
+    filter.classList.remove('active');
+    filter.querySelector('.list_filter_toggle').focus();
+  });
+});

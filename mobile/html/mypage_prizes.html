@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 당첨 내역 | 마이페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages/mypage.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="../js/common.js" defer></script>
+    <script src="../js/pages/mypage.js" defer></script>
+    <script src="../js/popup.js" defer></script>
+</head>
+<body>
+    <!-- 공통 헤더 시작 -->
+    <header class="site_header">
+        <div class="container header_inner">
+            <h1 class="header_logo">
+                <a href="main.html">
+                    <img src="../../images/common/lounge_logo.svg" alt="">
+                </a>
+            </h1>
+            <button class="menu_open" type="button">
+                <span class="menu_open_line"></span>
+                <span class="sr_only">전체 메뉴 열기</span>
+            </button>
+        </div>
+    </header>
+    <!-- 모바일 전체 메뉴 시작 -->
+    <div class="mobile_menu">
+        <div class="mobile_menu_inner">
+            <div class="menu_panel">
+                <!-- 로그인 전: 아래 블록 사용, 로그인 후 블록 제거
+                    <div class="menu_top">
+                        <a class="menu_logo" href="#">
+                            <img src="../../images/common/lounge_logo.svg" alt="">
+                        </a>
+                        <a class="menu_account" href="#">로그인</a>
+                    </div>
+                    <div class="menu_guest">로그인이 필요한 서비스 입니다.</div>
+                -->
+                <!-- 로그인 후 시작 -->
+                <div class="menu_top">
+                    <a class="menu_logo" href="#">
+                        <img src="../../images/common/lounge_logo.svg" alt="">
+                    </a>
+                    <button class="menu_account" type="button">로그아웃</button>
+                </div>
+                <section class="menu_member friend">
+                    <div class="member_heading">
+                        <h2 class="member_grade">
+                            Friend
+                            <a class="member_badge" href="#">등급</a>
+                        </h2>
+                        <strong class="member_name">김일상 약사님</strong>
+                    </div>
+                    <div class="member_description">VIP까지 3회 남았습니다.</div>
+                    <dl class="member_benefits">
+                        <div>
+                            <dt>보유 팜포인트</dt>
+                            <dd>50,000P</dd>
+                        </div>
+                        <div>
+                            <dt>비타민 쿠폰</dt>
+                            <dd>42장</dd>
+                        </div>
+                        <div>
+                            <dt>이벤트 참여</dt>
+                            <dd>47회</dd>
+                        </div>
+                    </dl>
+                </section>
+                <!-- 로그인 후 끝 -->
+                <nav class="menu_nav">
+                    <ul>
+                        <li>
+                            <a href="point_page.html">팜포인트 모으기</a>
+                        </li>
+                        <li>
+                            <a href="#">교환 SHOP</a>
+                        </li>
+                        <li>
+                            <a href="membership_page.html">팜라운지란?</a>
+                        </li>
+                        <li>
+                            <a href="mypage_points.html">마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="menu_external">
+                    <a href="#">데일리팜 바로가기</a>
+                </div>
+            </div>
+            <button class="menu_close" type="button">
+                <span class="sr_only">전체 메뉴 닫기</span>
+            </button>
+        </div>
+    </div>
+    <!-- 모바일 전체 메뉴 끝 -->
+    <nav class="header_nav">
+        <div class="container">
+            <div class="swiper header_nav_swiper">
+                <!-- 해당 페이지의 메뉴 li에 active 적용 -->
+                <ul class="swiper-wrapper header_nav_list hover_primary">
+                    <li class="swiper-slide">
+                        <a href="point_page.html">팜포인트 모으기</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="shop_page.html">교환 SHOP</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="membership_page.html">팜라운지란?</a>
+                    </li>
+                    <li class="swiper-slide active">
+                        <a href="mypage_points.html">마이페이지</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 공통 헤더 끝 -->
+    <main class="mobile_main mypage">
+        <!-- 마이페이지 공통 회원 정보 / 탭 시작 -->
+        <section class="mypage_top">
+            <div class="container">
+                <!-- 등급: friend / family / premium / vip -->
+                <div class="mypage_summary family">
+                    <section class="mypage_member">
+                        <h2 class="mypage_grade">
+                            <span class="mypage_name">김일상</span>
+                            약사님의 등급은
+                            <br>
+                            <a href="membership_page.html">
+                                <strong>FAMILY</strong>
+                            </a>
+                            입니다
+                        </h2>
+                        <div class="mypage_member_info">
+                            <p>
+                                VIP까지
+                                <span>3회</span>
+                                남았습니다.
+                            </p>
+                            <p>
+                                이벤트 참여
+                                <strong>42장</strong>
+                            </p>
+                            <a class="referral_open" href="#">추천인 등록</a>
+                        </div>
+                    </section>
+                    <section class="mypage_balance">
+                        <h3 class="mypage_summary_title">보유 팜포인트</h3>
+                        <div class="mypage_amount">
+                            <span class="mypage_point_icon">P</span>
+                            <strong>30,000</strong>
+                        </div>
+                        <div class="mypage_summary_note">
+                            <span>다음달 소멸 예정 포인트</span>
+                            <strong>12,000P</strong>
+                        </div>
+                    </section>
+                    <section class="mypage_coupon">
+                        <h3 class="mypage_summary_title">행운의 비타민 쿠폰</h3>
+                        <strong class="mypage_amount">47장</strong>
+                        <div class="mypage_summary_note">
+                            <span>참여</span>
+                            <strong>2회</strong>
+                        </div>
+                    </section>
+                </div>
+                <nav class="mypage_nav">
+                    <ul>
+                        <li>
+                            <a href="mypage_points.html">적립 및 사용내역</a>
+                        </li>
+                        <li class="active">
+                            <a href="mypage_prizes.html">나의 당첨 내역</a>
+                        </li>
+                        <li>
+                            <a href="mypage_inquiries.html">문의하기</a>
+                        </li>
+                        <li>
+                            <a href="mypage_notice.html">공지사항</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <!-- 마이페이지 공통 회원 정보 / 탭 끝 -->
+        <section class="mypage_panel">
+            <div class="container">
+                <div class="list_heading">
+                    <h2 class="section_title">나의 당첨 내역</h2>
+                    <div class="list_filter">
+                        <button class="list_filter_toggle" type="button">전체 내역</button>
+                        <div class="list_filter_options">
+                            <button class="active" type="button">전체 내역</button>
+                            <button type="button">팜포인트</button>
+                            <button type="button">기프티콘</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data_list mypage_prizes">
+                    <div class="data_head">
+                        <span class="data_cell">상품</span>
+                        <span class="data_cell">날짜</span>
+                        <span class="data_cell">상태</span>
+                        <span class="data_cell">구분</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.28</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.27</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.26</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.25</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.24</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.22</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.20</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.19</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.16</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                    <div class="data_row">
+                        <span class="data_cell prize_subject">팜포인트 3,000P</span>
+                        <span class="data_cell data_date">
+                            <time>26.07.10</time>
+                        </span>
+                        <span class="data_cell data_status">발급완료</span>
+                        <span class="data_cell data_category">행운의 비타민</span>
+                    </div>
+                </div>
+                <!-- 페이지 선택만 공통 제공. 실제 목록 조회는 개발 연동 -->
+                <nav class="pagination">
+                    <button class="pagination_prev" type="button" disabled>이전</button>
+                    <button class="pagination_page" type="button">1</button>
+                    <button class="pagination_page active" type="button">2</button>
+                    <button class="pagination_page" type="button">3</button>
+                    <button class="pagination_page" type="button">4</button>
+                    <button class="pagination_page" type="button">5</button>
+                    <button class="pagination_page" type="button">6</button>
+                    <button class="pagination_page" type="button">7</button>
+                    <button class="pagination_page" type="button">8</button>
+                    <button class="pagination_page" type="button">9</button>
+                    <button class="pagination_next" type="button">다음</button>
+                </nav>
+            </div>
+        </section>
+    </main>
+    <footer class="site_footer">
+        <div class="container">
+            <div class="footer_heading">
+                <a class="footer_logo" href="#">
+                    <img src="../../images/common/dummy_logo.svg" alt="">
+                </a>
+                <details class="footer_family">
+                    <summary>
+                        Family site
+                        <span class="footer_family_arrow"></span>
+                    </summary>
+                    <ul class="footer_family_list">
+                        <li>
+                            <a href="#">데일리팜</a>
+                        </li>
+                        <li>
+                            <a href="#">팜리쿠르트</a>
+                        </li>
+                        <li>
+                            <a href="#">DP부동산</a>
+                        </li>
+                        <li>
+                            <a href="#">팜인사이드</a>
+                        </li>
+                        <li>
+                            <a href="#">약담소</a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+            <!-- 정책 및 Family site 링크는 실제 경로로 교체 -->
+            <ul class="footer_links">
+                <li>
+                    <a href="#">회사소개</a>
+                </li>
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보취급방침</a>
+                </li>
+                <li>
+                    <a href="#">법적고지</a>
+                </li>
+                <li>
+                    <a href="#">이메일 무단수집 거부</a>
+                </li>
+            </ul>
+            <address class="footer_info">
+                <p class="footer_address">발행주소 : 서울시 송파구 법원로 128 문정 SK V1 GL 메트로시티 A동 401호</p>
+                <ul class="footer_company">
+                    <li>상호: (주)데일리팜</li>
+                    <li>대표자: 이정석</li>
+                </ul>
+                <ul class="footer_contact">
+                    <li>전화: 02-3473-083</li>
+                    <li>팩스: 02-3474-0169</li>
+                </ul>
+                <p class="footer_email">
+                    mail:
+                    <a href="mailto:dailypharm@dailypharm.com">dailypharm@dailypharm.com</a>
+                </p>
+            </address>
+            <p class="footer_copyright">Copyright © Dailypharm1999-2026, All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- 추천인 등록: 오류/유효 상태는 해당 referral_message에 active 추가, 유효 상태의 등록 버튼은 disabled 제거 -->
+    <div class="popup referral_popup">
+        <div class="popup_panel">
+            <div class="popup_header">
+                <div class="referral_heading">
+                    <h2 class="popup_title">추천인 등록하기</h2>
+                    <span class="referral_point">500P</span>
+                </div>
+                <button class="popup_close" type="button">
+                    닫기
+                    <span class="popup_close_icon"></span>
+                </button>
+            </div>
+            <p class="referral_description">추천인 아이디 입력 시, 추천인과 약사님께 500P씩 적립됩니다.</p>
+            <div class="referral_field">
+                <label class="referral_label">
+                    <span class="referral_label_text">추천인 ID</span>
+                    <input class="referral_input" type="text" placeholder="ID를 입력해주세요.">
+                </label>
+                <div class="referral_message referral_error">
+                    <img src="../../images/icons/error_icon.png" alt="">
+                    ID를 다시 확인해 주세요.
+                </div>
+                <div class="referral_message referral_success">
+                    <img src="../../images/icons/check_icon.png" alt="">
+                    유효한 ID입니다.
+                </div>
+            </div>
+            <button class="referral_submit" type="button" disabled>등록하기</button>
+        </div>
+    </div>
+    <!-- 포인트 지급 완료: 개발 연동 시 active로 표시 -->
+    <div class="popup referral_result">
+        <div class="result_panel">
+            <div class="result_icon">
+                <img src="../../images/icons/point_icon.png" alt="">
+            </div>
+            <div class="result_message">
+                <span class="referral_reward">500P</span>
+                가 지급되었습니다.
+            </div>
+            <button class="result_confirm" type="button">확인</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -8,6 +8,7 @@
     game_payment_open: '.game_payment_popup',
     game_result_open: '.game_result',
     game_point_open: '.game_point_result',
+    referral_open: '.referral_popup',
   };
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest(Object.keys(targets).map((name) => '.' + name).join(', '));
