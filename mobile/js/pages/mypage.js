@@ -5,13 +5,6 @@ document.querySelectorAll('.points_toggle, .inquiry_toggle').forEach((button) =>
   });
 });
 
-/* ==================== 선택한 마이페이지 탭 노출 ==================== */
-const mypageNav = document.querySelector('.mypage_nav');
-const activeTab = mypageNav?.querySelector('.active');
-if (activeTab && mypageNav.scrollWidth > mypageNav.clientWidth) {
-  mypageNav.scrollLeft = activeTab.offsetLeft;
-}
-
 /* ==================== 문의 등록은 개발에서 연결 ==================== */
 document.querySelector('.inquiry_form')?.addEventListener('submit', (event) => {
   event.preventDefault();

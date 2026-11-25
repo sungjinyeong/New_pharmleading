@@ -23,7 +23,6 @@
 }
 .point_page .point_card_link{
   grid-template-columns: 80px minmax(0, 1fr);
-  gap: calc(var(--padding) * 1);
   height: 140px;
   min-height: 0;
   overflow: hidden;
@@ -35,7 +34,6 @@
 /* ==================== 359px 이하: 좁은 화면 간격 ==================== */
 @media screen and (max-width: 359px){
   .point_page .point_card_link{
-    gap: 10px;
     padding-inline: 12px;
   }
 }

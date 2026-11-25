@@ -24,10 +24,8 @@
 })();
 
 /* ==================== 내비게이션: 드래그 / 선택한 메뉴 노출 ==================== */
-(() => {
-  const element = document.querySelector('.header_nav_swiper');
-  if (!element) return;
-  const items = [...element.querySelectorAll('.header_nav_list > li')];
+document.querySelectorAll('.header_nav_swiper, .mypage_nav').forEach((element) => {
+  const items = [...element.querySelectorAll('.swiper-wrapper > li')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const swiper = typeof Swiper === 'undefined' ? null : new Swiper(element, {
     slidesPerView: 'auto',
@@ -60,9 +58,9 @@
   };
 
   element.addEventListener('click', (event) => {
-    const link = event.target.closest('.header_nav_list a');
+    const link = event.target.closest('.swiper-wrapper > li > a');
     // 실제 주소가 있는 링크는 그대로 이동합니다.
-    if (!link || link.getAttribute('href') !== '#') return;
+    if (!link || link.getAttribute('href') !== '#' || link.classList.contains('referral_open')) return;
     event.preventDefault();
     const item = link.closest('li');
     items.forEach((entry) => entry.classList.toggle('active', entry === item));
@@ -70,12 +68,12 @@
     reveal(item);
   });
   element.addEventListener('focusin', (event) => {
-    const link = event.target.closest('.header_nav_list a');
+    const link = event.target.closest('.swiper-wrapper > li > a');
     if (link) reveal(link.closest('li'));
   });
   reveal(element.querySelector('.active'), 0);
   swiper?.on('resize', () => reveal(element.querySelector('.active'), 0));
-})();
+});
 
 /* ==================== Family site ==================== */
 (() => {

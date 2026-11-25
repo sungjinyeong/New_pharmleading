@@ -8,11 +8,17 @@
   background: linear-gradient(var(--color_blue_light), var(--color_slate) 78%);
 }
 .mypage_summary{
-  --member_color: var(--color_primary);
+  --member_color: var(--color_blue);
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
   gap: 16px;
   padding-block: 28px 32px;
+}
+.mypage_summary.friend{
+  --member_color: var(--color_blue);
+}
+.mypage_summary.family{
+  --member_color: var(--color_green);
 }
 .mypage_summary.premium{
   --member_color: var(--color_yellow);
@@ -99,20 +105,19 @@
 
 /* ==================== 마이페이지 탭 ==================== */
 .mypage_nav{
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+  min-width: 0;
+  overflow: hidden;
+  touch-action: pan-y;
 }
-.mypage_nav::-webkit-scrollbar{
-  display: none;
-}
-.mypage_nav ul{
+.mypage_nav_list{
   position: relative;
   display: flex;
-  min-width: max-content;
+  align-items: stretch;
 }
-.mypage_nav li{
+.mypage_nav .swiper-slide{
   flex: 1 0 auto;
+  width: auto;
+  height: auto;
 }
 .mypage_nav a{
   position: relative;
@@ -120,7 +125,7 @@
   align-items: center;
   justify-content: center;
   min-height: 56px;
-  padding-inline: 8px;
+  padding-inline: 12px;
   color: var(--color_muted);
   font-size: 16px;
   line-height: 1.4;
@@ -133,11 +138,23 @@
 .mypage_nav .active a::after{
   content: "";
   position: absolute;
-  right: 8px;
+  right: 12px;
   bottom: 0;
-  left: 8px;
+  left: 12px;
   height: 2px;
   background-color: var(--color_black);
+}
+.mypage_nav .referral_open{
+  margin-top: 0;
+  text-decoration: none;
+}
+.mypage_nav:not(.swiper-initialized){
+  overflow-x: auto;
+  scrollbar-width: none;
+  touch-action: auto;
+}
+.mypage_nav:not(.swiper-initialized)::-webkit-scrollbar{
+  display: none;
 }
 
 /* ==================== 목록 공통 ==================== */
@@ -161,8 +178,7 @@
 .mypage .pagination{
   margin-top: 28px;
 }
-.data_head,
-.data_row{
+.data_head, .data_row{
   display: grid;
   grid-template-columns: var(--list_columns);
   align-items: center;
@@ -197,15 +213,17 @@
   position: absolute;
   top: calc(50% - 5px);
   right: 2px;
-  width: 7px;
-  height: 7px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background-color: currentColor;
+  clip-path: polygon(10% 35%, 20% 25%, 50% 55%, 80% 25%, 90% 35%, 50% 75%);
+  transform: rotate(0);
+  transform-origin: center;
+  transition: transform .2s ease;
 }
 .points_item.active .data_arrow,
 .inquiry_item.active .data_arrow{
-  transform: translateY(3px) rotate(225deg);
+  transform: rotate(180deg);
 }
 .list_badge{
   display: inline-flex;
@@ -241,14 +259,14 @@
 
 /* ==================== 당첨 내역 ==================== */
 .mypage_prizes{
-  --list_columns: 1.5fr 1fr 1fr 1.2fr;
+  --list_columns: repeat(4, minmax(0, 1fr));
 }
 .mypage_prizes .prize_subject{
   font-size: 16px;
-  text-align: left;
+  text-align: center;
 }
 .mypage_prizes .data_category{
-  color: var(--color_muted);
+  /* color: var(--color_muted); */
 }
 
 /* ==================== 문의 목록 / 답변 ==================== */
@@ -479,31 +497,6 @@
   max-width: 100%;
   height: auto;
   margin-inline: auto;
-}
-.board_notes{
-  margin-bottom: 20px;
-}
-.board_notes h3{
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-weight: 500;
-}
-.board_notes ul{
-  display: grid;
-  gap: 6px;
-  color: var(--color_muted);
-  font-size: 14px;
-  line-height: 1.8;
-}
-.board_notes li{
-  position: relative;
-  padding-left: 10px;
-}
-.board_notes li::before{
-  content: "·";
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 .board_footer{
   display: flex;
@@ -742,8 +735,8 @@
     font-weight: 600;
   }
   .mypage_prizes .data_row{
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 4px 12px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 5px 8px;
     padding-block: 16px;
     text-align: left;
   }
@@ -752,16 +745,21 @@
     grid-row: 1;
   }
   .mypage_prizes .prize_subject{
-    grid-column: 1;
+    grid-column: 3;
     grid-row: 2;
+    text-align: right;
   }
   .mypage_prizes .data_status{
     grid-column: 2;
     grid-row: 2;
+    color: var(--color_gray_300);
+    font-size: 12px;
   }
   .mypage_prizes .data_category{
-    grid-column: 1 / -1;
-    grid-row: 3;
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--color_text);
+    font-size: 16px;
   }
   .mypage_inquiries .data_row{
     grid-template-columns: 84px minmax(0, 1fr) auto 10px;
@@ -808,15 +806,12 @@
   }
 }
 
-/* ==================== 600px 이하: 모바일 탭 ==================== */
-@media screen and (max-width: 600px){
-  .mypage_nav a{
-    font-size: 14px;
-  }
-}
-
 /* ==================== 359px 이하: 좁은 모바일 ==================== */
 @media screen and (max-width: 359px){
+  .mypage_prizes .prize_subject,
+  .mypage_prizes .data_category{
+    font-size: 14px;
+  }
   .mypage_summary{
     gap: 16px 8px;
   }

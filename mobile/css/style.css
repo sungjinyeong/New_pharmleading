@@ -51,8 +51,8 @@ a:focus-visible{
   height: var(--header_height);
 }
 .header_logo a{display: block;}
-.header_logo img{display: block;}
 .header_logo img{
+  display: block;
   width: 200px;
   height: auto;
 }
@@ -223,9 +223,9 @@ html.menu_opened{overflow: hidden;}
 .menu_account{
   flex-shrink: 0;
   padding-block: calc(var(--padding) * 1);
+  color: var(--color_muted);
   font-size: 12px;
 }
-.menu_account{color: var(--color_muted);}
 .menu_guest{
   padding: calc(var(--padding) * 1.8);
   margin-bottom: calc(var(--padding) * 1);
