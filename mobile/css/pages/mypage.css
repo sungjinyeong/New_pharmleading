@@ -37,7 +37,7 @@
 .mypage_grade{
   min-width: 0;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.35;
 }
 .mypage_grade strong{
@@ -59,7 +59,7 @@
 .mypage_summary_title{
   margin-bottom: 10px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
 }
 .mypage_amount{
@@ -67,7 +67,7 @@
   align-items: center;
   gap: 4px;
   color: var(--color_black);
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
@@ -131,6 +131,12 @@
   line-height: 1.4;
   white-space: nowrap;
 }
+.mypage_nav .swiper-slide:first-child a{
+  padding-left: 0;
+}
+.mypage_nav .swiper-slide:last-child a{
+  padding-right: 0;
+}
 .mypage_nav .active a{
   color: var(--color_black);
   font-weight: 600;
@@ -143,6 +149,12 @@
   left: 12px;
   height: 2px;
   background-color: var(--color_black);
+}
+.mypage_nav .swiper-slide:first-child.active a::after{
+  left: 0;
+}
+.mypage_nav .swiper-slide:last-child.active a::after{
+  right: 0;
 }
 .mypage_nav .referral_open{
   margin-top: 0;
